@@ -57,3 +57,10 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 gem 'devise'
 gem 'simple_form', github: 'heartcombo/simple_form'
+gem 'faker'
+gem "pundit"
+gem "geocoder"
+gem 'cloudinary', '~> 1.16.0'
+gem 'open-uri'
+gem 'pg_search', '~> 2.3.0'
+gem 'dotenv-rails', groups: [:development, :test]
