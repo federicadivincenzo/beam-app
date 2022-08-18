@@ -1,0 +1,17 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  artist: MyString
+  date: 2022-08-18
+  address: MyString
+  venue: MyString
+  description: MyText
+  rating: 1
+
+two:
+  artist: MyString
+  date: 2022-08-18
+  address: MyString
+  venue: MyString
+  description: MyText
+  rating: 1

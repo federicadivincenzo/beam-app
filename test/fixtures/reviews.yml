@@ -1,0 +1,13 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  rating: 1
+  content: MyText
+  user: one
+  review_profile: one
+
+two:
+  rating: 1
+  content: MyText
+  user: two
+  review_profile: two
