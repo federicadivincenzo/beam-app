@@ -1,0 +1,21 @@
+<div class="nvabr py-3">
+  <div class="container d-flex justify-content-between">
+    <strong>beam</strong>
+    <div class="d-flex align-items-center">
+      <form action="#" class="px-3">
+        <input type="text">
+        <input type="submit" value="Search">
+      </form>
+
+      <div>
+        <% if user_signed_in? %>
+        <%= image_tag "https://kitt.lewagon.com/placeholder/users/random", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+        <% else %>
+          <button class="btn">Register</button>
+          <button class='btn'>Log in</button>
+        <% end %>
+      </div>
+
+    </div>
+  </div>
+</div>
