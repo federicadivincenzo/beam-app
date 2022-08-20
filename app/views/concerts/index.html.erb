@@ -3,14 +3,9 @@
 <ul>
   <% @concerts.each do |concert| %>
     <li>
-      <strong><%= link_to concert.name, concert_path(concert) %></strong>
-      <br>
-      <p><%= concert.artist %></p>
-      <br>
-      <p>[ <%= concert.rating %> ]</p>
-      <br>
+      <strong><%= link_to concert.artist, concert_path(concert) %></strong>
+      <p><%= concert.venue %> [<%= concert.rating %>]</p>
       <em><p><%= concert.date %></p></em>
-      <br>
       <em><p><%= concert.address %></p></em>
     </li>
   <% end %>
