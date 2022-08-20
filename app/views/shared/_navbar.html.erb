@@ -63,7 +63,7 @@
                 <li><a class="dropdown-item" href="#">profile</a></li>
                 <li><a class="dropdown-item" href="#">msg</a></li>
                 <li><hr class="dropdown-divider"></li>
-                <li><a class="dropdown-item" href="#">log out</a></li>
+                <li><%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item"%></li>
               </ul>
             </li>
           </ul>
