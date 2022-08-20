@@ -1,0 +1,19 @@
+.navbar-lewagon {
+  justify-content: space-between;
+  background: white;
+}
+
+.navbar-lewagon .navbar-collapse {
+  flex-grow: 0;
+}
+
+.navbar-lewagon .navbar-brand img {
+  width: 40px;
+}
+.signInOrSignUp{
+  // gap:20px;
+  width: 100%;
+  align-items: center;
+  justify-content: space-around;
+  display: flex;
+}
