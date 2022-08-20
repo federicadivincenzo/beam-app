@@ -11,7 +11,7 @@ require 'faker'
 puts 'Cleaning database...'
 User.destroy_all
 Concert.destroy_all
-# Review.destroy_all
+Review.destroy_all
 # Message.destroy_all
 # Chatroom.destroy_all
 puts 'Database cleaned ✅'
@@ -39,15 +39,13 @@ end
 puts '===================='
 puts 'Concerts created ✅'
 puts
-# puts 'Creating reviews...'
-# 10.times do
-#   user = User.all.sample
-#   review = Review.create!(
-#     rating: rand(1..5),
-#     content: Faker::Lorem.paragraph(sentence_count: 3),
-#     user_id: user.id,
-#     review_profile_id: User.where('id != ?', user.id).sample
-#   )
-#   puts "Review #{review.id} created ✅"
-# end
-# puts 'Reviews created ✅'
+puts 'Creating review...'
+reviewprofile = ReviewProfile.create!(user_id: User.first.id)
+user = User.last
+Review.create!(
+  rating: rand(1..5),
+  content: Faker::Lorem.paragraph(sentence_count: 3),
+  user_id: user.id,
+  review_profile_id: reviewprofile.id
+)
+puts 'Review created ✅'
