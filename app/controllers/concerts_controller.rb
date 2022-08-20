@@ -1,5 +1,5 @@
 class ConcertsController < ApplicationController
-  before_action :set_conert, only: :show
+  before_action :set_concert, only: :show
 
   def index
     @concerts = Concert.all.order(created_at: :asc)
