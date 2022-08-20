@@ -1,0 +1,8 @@
+<h1><%= @concert.artist %></h1>
+<p><%= @concert.venue %> [<%= @concert.rating %>]</p>
+<em><p><%= @concert.date %></p></em>
+<em><p><%= @concert.address %></p></em>
+<br>
+<p><%= @concert.description %></p>
+
+<%= link_to "Back to the list", concerts_path %>
