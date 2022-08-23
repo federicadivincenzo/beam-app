@@ -12,8 +12,8 @@ puts 'Cleaning database...'
 User.destroy_all
 Concert.destroy_all
 Review.destroy_all
-# Message.destroy_all
-# Chatroom.destroy_all
+Message.destroy_all
+Chatroom.destroy_all
 puts 'Database cleaned ✅'
 puts
 puts 'Creating users...'
@@ -49,3 +49,13 @@ Review.create!(
   review_profile_id: reviewprofile.id
 )
 puts 'Review created ✅'
+puts
+puts 'Creating chatroom...'
+Chatroom.create!(name: '#test', concert_id: Concert.all.sample.id)
+puts 'Chatroom created ✅'
+puts 'Creating messages...'
+3.times do
+  Message.create!(content: Faker::Company.bs, user_id: User.all.sample.id, chatroom_id: Chatroom.first.id)
+end
+puts 'Messages created ✅'
+puts
