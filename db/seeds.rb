@@ -9,9 +9,9 @@
 require 'faker'
 
 puts 'Cleaning database...'
-User.destroy_all
-Concert.destroy_all
 Review.destroy_all
+Concert.destroy_all
+User.destroy_all
 Message.destroy_all
 Chatroom.destroy_all
 puts 'Database cleaned ✅'
