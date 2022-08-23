@@ -4,6 +4,8 @@ $br-radius: 2em;
   display: flex;
   overflow: scroll;
   gap: .6em;
+  scrollbar-color: none;
+  scroll-snap-type: none;
 }
 
 .card {
