@@ -1,0 +1,10 @@
+.intro_animation {
+  position: fixed;
+  height: 100vh;
+  width: 100%;
+  z-index: 999;
+  background-color:#F6F6F6;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

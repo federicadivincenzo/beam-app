@@ -1,0 +1,16 @@
+.logo {
+  text-align: center;
+  .logo_beam {
+    font-weight: bold;
+    color: #FF7E06;
+    font-size: 3em;
+  }
+  div {
+    width: 3.6rem;
+    height: 3.6rem;
+    border-radius: 50%;
+    margin: .3rem;
+    display: inline-block;
+    background-color: #FF7E06;
+  }
+}
