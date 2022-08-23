@@ -1,12 +1,16 @@
-<h1>Concerts</h1>
-<br>
-<ul>
-  <% @concerts.each do |concert| %>
-    <li>
-      <strong><%= link_to concert.artist, concert_path(concert) %></strong>
-      <p><%= concert.venue %> [<%= concert.rating %>]</p>
-      <em><p><%= concert.date %></p></em>
-      <em><p><%= concert.address %></p></em>
-    </li>
-  <% end %>
-</ul>
+<section class="container">
+<h1>Recommended for you</h1>
+  <div class="card-grid">
+    <% @concerts.each do |concert| %>
+      <div class="card card__background" style="background-image: url(https://images.unsplash.com/photo-1557177324-56c542165309?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80)">
+        <div class="card__content">
+          <p class="card__category"><%= concert.date %></p>
+          <h3 class="card__heading"><%= link_to concert.artist, concert_path(concert) %></h3>
+          <p class="card__category"><%= concert.address %></p>
+        </div>
+      </div>
+    <% end %>
+  <div>
+  <h1>categories</h1>
+
+</section>
