@@ -20,7 +20,7 @@
     </div>
   </div>
 </div> %>
-
+<%#
 <nav class="navbar navbar-expand-lg navbar-light bg-light px-5">
   <div class="container-fluid">
     <a class="navbar-brand" href="#">Beam</a>
@@ -34,7 +34,7 @@
         </li>
         <li class="nav-item">
           <a class="nav-link" href="#">Link</a>
-        </li>
+        </li> %>
         <%# <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
             Dropdown
@@ -49,32 +49,52 @@
         <%# <li class="nav-item">
           <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
         </li> %>
-      </ul>
+      <%# </ul>
       <form class="d-flex">
         <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-        <button class="btn btn-outline-success" type="submit">Search</button>
-        <% if user_signed_in? %>
-          <ul class="navbar-nav me-auto mx-3 mb-2 mb-lg-0">
+        <button class="btn btn-outline-success" type="submit">Search</button> %>
+        <%# <% if user_signed_in? %>
+          <%# <ul class="navbar-nav me-auto mx-3 mb-2 mb-lg-0">
             <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                 <%= image_tag "https://kitt.lewagon.com/placeholder/users/random", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
-              </a>
+              <%# </a>
               <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                 <li><a class="dropdown-item" href="#">profile</a></li>
                 <li><a class="dropdown-item" href="#">msg</a></li>
                 <li><hr class="dropdown-divider"></li>
-                <li><%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item"%></li>
-              </ul>
+                <%# <li><%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item"%>
+                <%# </li>  %>
+              <%# </ul>
             </li>
-          </ul>
-        <% else %>
-        <div class="signInOrSignUp">
+          </ul>   %>
+        <%# <% else %>
+        <%# <div class="signInOrSignUp">
           <%= link_to "sign in", new_user_session_path %>
-          <%= link_to "sign up", new_user_registration_path %>
-        </div>
-        <% end %>
+          <%# <%= link_to "sign up", new_user_registration_path %>
+        <%# </div> %>
+        <%# <% end %>
 
-      </form>
+      <%# </form>
     </div>
   </div>
+</nav> %>
+<%# mobile version %>
+<nav class="container d-flex align-items-center justify-content-between">
+  <%= image_tag "logo.png", alt: 'logo' %>
+  <div class="dropdown">
+    <i class="fas fa-bars" data-bs-toggle="dropdown" aria-expanded="false"></i>
+    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+    <% if user_signed_in? %>
+      <%# <%= image_tag "https://kitt.lewagon.com/placeholder/users/random", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+      <li><a class="dropdown-item" href="#">profile</a></li>
+      <li><a class="dropdown-item" href="#">msg</a></li>
+      <li><hr class="dropdown-divider"></li>
+      <li><%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item"%></li>
+    <% else %>
+      <li><%= link_to "sign in", new_user_session_path, class:"dropdown-item" %></li>
+      <li><%= link_to "sign up", new_user_registration_path, class:"dropdown-item"  %></li>
+    <% end %>
+    </ul>
+</div>
 </nav>
