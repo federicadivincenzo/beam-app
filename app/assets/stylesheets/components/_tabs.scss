@@ -1,0 +1,25 @@
+nav.stroke {
+  display: flex;
+  overflow: scroll;
+  gap: 1em;
+}
+
+nav.stroke div {
+  position: relative;
+}
+
+nav.stroke div:after {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+  width: 0%;
+  content: '.';
+  color: transparent;
+  background: #aaa;
+  height: 1px;
+}
+nav.stroke div:hover:after {
+  width: 100%;
+}

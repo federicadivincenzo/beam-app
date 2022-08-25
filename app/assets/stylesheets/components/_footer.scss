@@ -1,0 +1,18 @@
+.footer-map {
+  padding: .8em;
+  position: fixed;
+  bottom: 0;
+  background-color: white;
+  border-radius: 1em 1em 0 0;
+  width: 100%;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+}
+
+.footer_content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  p {
+    margin: 0;
+  }
+}

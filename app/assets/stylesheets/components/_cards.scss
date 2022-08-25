@@ -1,9 +1,35 @@
 $br-radius: 2em;
 
-.card-grid {
+.card-grid_scroll {
   display: flex;
   overflow: scroll;
   gap: .6em;
+  scrollbar-color: none;
+  scroll-snap-type: none;
+  .card__heading{
+    color: rgba(255,255,255,0.9) !important;
+    font-size: 1.9rem;
+    text-shadow: 2px 2px 20px rgba(0,0,0,0.2);
+    line-height: 1.4;
+    word-spacing: 100vw;
+    font-weight: bold;
+  }
+}
+
+.card-grid_column {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  gap: .8em;
+  .card__heading{
+    color: rgba(255,255,255,0.9) !important;
+    font-size: 1.4rem;
+    text-shadow: 2px 2px 20px rgba(0,0,0,0.2);
+    line-height: 1.4;
+    word-spacing: 100vw;
+    font-weight: bold;
+  }
+
 }
 
 .card {
@@ -23,6 +49,7 @@ $br-radius: 2em;
   background-size: cover;
   background-position: center;
   border-radius: var(--spacing-l);
+  width: 100%;
   bottom: 0;
   filter: brightness(0.75) saturate(1.2) contrast(0.85);
   left: 0;
@@ -50,13 +77,4 @@ $br-radius: 2em;
   font-size: 0.9rem;
   margin-bottom: 8px;
   text-transform: uppercase;
-}
-
-.card__heading{
-  color: rgba(255,255,255,0.9);
-  font-size: 1.9rem;
-  text-shadow: 2px 2px 20px rgba(0,0,0,0.2);
-  line-height: 1.4;
-  word-spacing: 100vw;
-  font-weight: bold;
 }
