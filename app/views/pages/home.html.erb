@@ -9,11 +9,15 @@
 </div> %>
 
 <div class="d-flex justify-content-between flex-column align-items-center">
-  <h1 class="my-3 w-75">Lorem ipsum dolor sit amet consectetur adipisicing elit. Velit</h1>
-  <form action="" class="my-3 w-75">
-    <input type="text" placeholder="Search for artist, venue, city">
-  </form>
-  <h2 class="my-3 w-75">trainding now</h2>
+  <h1 class="my-3 w-75"> <strong>Lorem ipsum dolor sit amet consectetur adipisicing elit. Velit</strong></h1>
+  <%# <div class="searchInputAndIcon"> %>
+    <form action="" class="my-3 w-75 searchInputAndIcon">
+      <input class="rounded-pill searchInput" type="text" placeholder="Search for artist, venue, city">
+      <button><i class="fas fa-search"></i></button>
+    </form>
+  <%# </div> %>
+
+  <h2 class="my-3 w-75"><strong>trainding now</strong></h2>
 </div>
 
 <div class="card-grid">
@@ -26,4 +30,4 @@
         </div>
       </div>
     <% end %>
-  <div>
+<div>
