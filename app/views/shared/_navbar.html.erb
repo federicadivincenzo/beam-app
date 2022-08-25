@@ -90,7 +90,7 @@
       <li><a class="dropdown-item" href="#">profile</a></li>
       <li><a class="dropdown-item" href="#">msg</a></li>
       <li><hr class="dropdown-divider"></li>
-      <li><%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item"%></li>
+      <li><%= button_to "Log out", destroy_user_session_url, method: :delete, class: "dropdown-item"%></li>
     <% else %>
       <li><%= link_to "sign in", new_user_session_path, class:"dropdown-item" %></li>
       <li><%= link_to "sign up", new_user_registration_path, class:"dropdown-item"  %></li>
