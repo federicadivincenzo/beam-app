@@ -4,11 +4,11 @@ nav.stroke {
   gap: 1em;
 }
 
-nav.stroke ul li a {
+nav.stroke div {
   position: relative;
 }
 
-nav.stroke ul li a:after {
+nav.stroke div:after {
   position: absolute;
   bottom: 0;
   left: 0;
@@ -20,6 +20,6 @@ nav.stroke ul li a:after {
   background: #aaa;
   height: 1px;
 }
-nav.stroke ul li a:hover:after {
+nav.stroke div:hover:after {
   width: 100%;
 }

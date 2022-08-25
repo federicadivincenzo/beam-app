@@ -1,2 +1,7 @@
 // Import page-specific CSS files here.
 @import "home";
+
+
+.index-container > * {
+  margin-bottom: 2em;
+}
