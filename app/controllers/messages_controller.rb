@@ -1,4 +1,5 @@
 class MessagesController < ApplicationController
+  skip_before_action :verify_authenticity_token
   def create
     puts "raise"
     @chatroom = Chatroom.find(params[:chatroom_id])
