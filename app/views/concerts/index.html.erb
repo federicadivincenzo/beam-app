@@ -1,69 +1,76 @@
-<section class="container">
-<h1>Recommended for you</h1>
-  <div class="card-grid_scroll">
-    <% @concerts.each do |concert| %>
-      <div class="card card__background" style="background-image: url(https://images.unsplash.com/photo-1557177324-56c542165309?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80)">
-        <div class="card__content">
-          <p class="card__category"><%= concert.date %></p>
-          <h3 class="card__heading"><%= link_to concert.artist, concert_path(concert) %></h3>
-          <p class="card__category"><%= concert.address %></p>
+<div class="index-container">
+  <section class="container">
+  <h1>Recommended for you</h1>
+    <div class="card-grid_scroll">
+      <% @concerts.each do |concert| %>
+        <div class="card card__background" style="background-image: url(https://images.unsplash.com/photo-1557177324-56c542165309?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80)">
+          <div class="card__content">
+            <p class="card__category"><%= concert.date %></p>
+            <h3 class="card__heading"><%= link_to concert.artist, concert_path(concert) %></h3>
+            <p class="card__category"><%= concert.address %></p>
+          </div>
         </div>
-      </div>
-    <% end %>
-  </div>
-</section>
-<div class="container">
-<h1>categories</h1>
-    <nav class="categories_tabs stroke">
-    <button>
-      <div>
-        <i class="fa-solid fa-guitar icon_category"></i>
-        <p class="tab-text">Rock</p>
-      </div>
-    </button>
-    <button>
-      <div>
-        <i class="fa-solid fa-compact-disc icon_category"></i>
-        <p class="tab-text">Disco</p>
-      </div>
-    </button>
-    <button>
-      <div>
-        <i class="fa-solid fa-drum icon_category"></i>
-        <p class="tab-text">Rock</p>
-      </div>
-    </button>
-    <button>
-      <div>
-        <i class="fa-solid fa-microphone-lines icon_category"></i>
-        <p class="tab-text">Rap</p>
-      </div>
-    </button>
-    <button>
-      <div>
-        <i class="fa-solid fa-headphones-simple icon_category"></i>
-        <p class="tab-text">Silent disco</p>
-      </div>
-    </button>
-    <button>
-      <div>
-        <i class="fa-solid fa-music icon_category"></i>
-            <p class="tab-text">DUNNO</p>
-      </div>
-    </button>
-    </nav>
-</div>
-<div class="container">
-<div class="card-grid_column">
-    <% @concerts.each do |concert| %>
-      <div class="card card__background" style="background-image: url(https://images.unsplash.com/photo-1557177324-56c542165309?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80)">
-        <div class="card__content">
-          <p class="card__category"><%= concert.date %></p>
-          <h3 class="card__heading"><%= link_to concert.artist, concert_path(concert) %></h3>
-          <p class="card__category"><%= concert.address %></p>
+      <% end %>
+    </div>
+  </section>
+  <div class="container">
+  <h1>categories</h1>
+      <nav class="categories_tabs stroke">
+      <button>
+        <div>
+          <i class="fa-solid fa-guitar icon_category"></i>
+          <p class="tab-text">Rock</p>
         </div>
-      </div>
-    <% end %>
+      </button>
+      <button>
+        <div>
+          <i class="fa-solid fa-compact-disc icon_category"></i>
+          <p class="tab-text">Disco</p>
+        </div>
+      </button>
+      <button>
+        <div>
+          <i class="fa-solid fa-drum icon_category"></i>
+          <p class="tab-text">Rock</p>
+        </div>
+      </button>
+      <button>
+        <div>
+          <i class="fa-solid fa-microphone-lines icon_category"></i>
+          <p class="tab-text">Rap</p>
+        </div>
+      </button>
+      <button>
+        <div>
+          <i class="fa-solid fa-headphones-simple icon_category"></i>
+          <p class="tab-text">Silent disco</p>
+        </div>
+      </button>
+      <button>
+        <div>
+          <i class="fa-solid fa-music icon_category"></i>
+              <p class="tab-text">DUNNO</p>
+        </div>
+      </button>
+      </nav>
   </div>
-
+  <div class="container">
+  <div class="card-grid_column">
+      <% @concerts.each do |concert| %>
+        <div class="card card__background" style="background-image: url(https://images.unsplash.com/photo-1557177324-56c542165309?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80)">
+          <div class="card__content">
+            <p class="card__category"><%= concert.date %></p>
+            <h3 class="card__heading"><%= link_to concert.artist, concert_path(concert) %></h3>
+            <p class="card__category"><%= concert.address %></p>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
 </div>
+  <div class="footer-map">
+    <div class="footer_content">
+    <p>SOME TEXT</p>
+    <button class="btn-orange">MAP</button>
+    </div>
+  </div>
