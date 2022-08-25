@@ -1,0 +1,41 @@
+.searchInput{
+  border: none;
+  background-color: #FF7E06;
+  padding: 8px 12px;
+  width: 100%;
+}
+.searchInputAndIcon{
+  position:relative ;
+  width: 100%;
+  text-align: center;
+  display: flex;
+  text-align: center;
+  justify-content: center;
+}
+.fa-search{
+  position: absolute;
+  right: 8%;
+  top: 30%;
+  z-index: 10;
+  color: white;
+}
+button{
+  border: none;
+  background-color: none;
+}
+// input[type=text] {
+//   border: none;
+//   background-color: orangered;
+//   background-color: #3CBC8D;
+//   color: white;
+// }
+::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+  color: white;
+  opacity: 1; /* Firefox */
+}
+// .footer{
+//   display: block;
+//   position: fixed;
+//   bottom: 0;
+//   z-index: 999;
+// }
