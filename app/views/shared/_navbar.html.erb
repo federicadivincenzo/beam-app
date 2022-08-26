@@ -87,7 +87,7 @@
     <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
     <% if user_signed_in? %>
       <%# <%= image_tag "https://kitt.lewagon.com/placeholder/users/random", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
-      <%# <li><%= link_to "My Profile", user_path(current_user.id), class: "dropdown-item"%></li> %>
+      <li><%= link_to "My Profile", user_path(current_user.id), class: "dropdown-item"%></li>
       <li><a class="dropdown-item" href="#">msg</a></li>
       <li><hr class="dropdown-divider"></li>
       <li><%= button_to "Log out", destroy_user_session_url, method: :delete, class: "dropdown-item"%></li>
