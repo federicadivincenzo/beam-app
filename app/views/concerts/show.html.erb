@@ -1,8 +1,36 @@
-<h1><%= @concert.artist %></h1>
-<p><%= @concert.venue %> [<%= @concert.rating %>]</p>
-<em><p><%= @concert.date %></p></em>
-<em><p><%= @concert.address %></p></em>
-<br>
-<p><%= @concert.description %></p>
+<div class="show-container">
+  <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/breakfast.jpg)">
+    Breakfast
+  </div>
+  <div class="container">
+    <div class="concert-details">
+      <div class="concert-details-title">
+        <h1><%= @concert.artist %></h1>
+        <p><i class="fa-solid fa-star"></i> (5.0)</p>
+      </div>
+      <div class="concert-details-list">
+        <ul class="list-no-style">
+          <li><p><i class="fa-solid fa-calendar"></i> <%= @concert.date %></p></li>
+          <li><p><i class="fa-solid fa-location-crosshairs"></i> <%= @concert.venue %></p></li>
+          <li><p><i class="fa-solid fa-location-dot"></i> <%= @concert.address %></p></li>
+        </ul>
+      </div>
+      <div class="concert-details-bio">
+        <h3>Description</h3>
+        <p><%= @concert.description %> "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."</p>
+      </div>
+    </div>
+    <div class="container-map">
+      <img src="https://www.google.com/maps/d/thumbnail?mid=17x3faiz9oX3SJDpBJPjO-zu6jUQ" alt="">
+    </div>
+  </div>
+    <div class="footer-map">
+      <div class="footer_content">
+        <p>+88 people attending </p>
+        <button class="btn-orange">JOIN NOW</button>
+      </div>
+  </div>
+</div>
+
 
 <%= link_to "Back to the list", concerts_path %>
