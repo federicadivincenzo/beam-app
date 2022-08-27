@@ -1,13 +1,13 @@
 <div class="container">
   <div class="row justify-content-center">
     <div class="col-10 d-flex justify-content-between flex-column align-items-center bio">
-      <%= image_tag "https://kitt.lewagon.com/placeholder/users/random", class: "avatar text-center  dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false%>
+      <%= image_tag "#{@userphto}", class: "avatar text-center  dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false%>
       <h1 class="text-center"><%= @username %></h1>
       <p class="text-center">i'm just young dumb and broke, but i'm legend tho</p>
     </div>
     <div class="text-center my-2 col-8 d-flex justify-content-around align-items-center">
         <div><div><strong><%= @reviewRating %></strong></div><div>Rating</div></div>
-        <div><strong><div>10</div> </strong><div>concerts</div></div>
+        <div><strong><div>10</div></strong><div>concerts</div></div>
     </div>
     <div class="text-center my-2 col-8 d-flex justify-content-between align-items-center btnFlex">
       <button class="btn-orange">Chat</button>
