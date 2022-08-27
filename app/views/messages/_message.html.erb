@@ -1,7 +1,8 @@
+
 <div id="message-<%= message.id %>">
   <small>
     <strong><%= message.user.username %></strong>
-    <i><%= message.created_at.strftime("%a %b %e at %l:%M %p") %></i>
+    <i><%= message.created_at.in_time_zone("Europe/Amsterdam").strftime("%a %b %e at %l:%M %p") %></i>
   </small>
   <p><%= message.content %></p>
 </div>
