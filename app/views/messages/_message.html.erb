@@ -1,7 +1,13 @@
-<div id="message-<%= message.id %>">
-  <small>
-    <strong><%= message.user.username %></strong>
-    <i><%= message.created_at.strftime("%a %b %e at %l:%M %p") %></i>
-  </small>
-  <p><%= message.content %></p>
-</div>
+
+  <div id="message-<%= message.id %>" class="message-container-guests">
+    <div class="message-container-photo">
+      <%= image_tag "https://kitt.lewagon.com/placeholder/users/cveneziani", class: "avatar", alt: "avatar" %>
+    </div>
+    <div class="message-body">
+      <p><strong><%= message.user.username %></strong></p>
+      <p><%= message.content %></p>
+      <div class="message-body-time">
+        <i><%= message.created_at.strftime("%l:%M%p") %></i>
+      </div>
+    </div>
+  </div>
