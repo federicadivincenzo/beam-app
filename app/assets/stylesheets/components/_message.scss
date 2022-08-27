@@ -8,9 +8,12 @@
     border-radius: 1em;
     margin-bottom: 1em;
     padding: .8em;
-    line-height: .5;
+    line-height: 1;
     display: flex;
     flex-direction: column;
+    p {
+      line-height: 1;
+    }
     .message-body-time {
       display: flex;
       align-self: flex-end;
@@ -34,10 +37,19 @@
     line-height: .5;
     display: flex;
     flex-direction: column;
+    p {
+      line-height: 1;
+    }
     .message-body-time {
       display: flex;
       align-self: flex-end;
       color: rgb(68, 68, 68);
     }
   }
+}
+
+.message-container-photo > img {
+  width: 40px;
+  height: 40px;
+
 }

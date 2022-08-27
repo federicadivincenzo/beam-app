@@ -15,11 +15,11 @@
   <h1>Recommended for you</h1>
     <div class="card-grid_scroll">
       <% @concerts.sample(3).each do |concert| %>
-        <div class="card card__background" style="background-image: url(<%= concert.photo %>)">
+        <div class="card card__background" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(<%= concert.photo %>)">
           <div class="card__content">
-            <p class="card__category"><%= concert.date %></p>
+            <p class="card__category"><strong><%= concert.date %></strong></p>
             <h3 class="card__heading"><%= link_to concert.artist, concert_path(concert) %></h3>
-            <p class="card__category"><%= concert.address %></p>
+            <p class="card__category"><strong><%= concert.address %></strong></p>
           </div>
         </div>
       <% end %>
@@ -69,11 +69,11 @@
   <div class="container">
   <div class="card-grid_column">
       <% @concerts.each do |concert| %>
-        <div class="card card__background" style="background-image: url(<%= concert.photo %>)">
+        <div class="card card__background" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(<%= concert.photo %>)">
           <div class="card__content">
-            <p class="card__category"><%= concert.date %></p>
+            <p class="card__category"><strong><%= concert.date %></strong></p>
             <h3 class="card__heading"><%= link_to concert.artist, concert_path(concert) %></h3>
-            <p class="card__category"><%= concert.address %></p>
+            <p class="card__category"><strong><%= concert.address %></strong></p>
           </div>
         </div>
       <% end %>
