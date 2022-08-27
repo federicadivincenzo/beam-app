@@ -28,7 +28,7 @@ puts 'Creating concerts...'
     artist: Faker::Music.band,
     date: Faker::Date.between(from: '2022-01-01', to: '2024-01-01'),
     address: Faker::Address.street_address,
-    venue: Faker::Company.name,
+    venue: Faker::Address.city,
     description: Faker::Lorem.paragraph(sentence_count: 3),
     rating: rand(1..5),
     genre: Faker::Music.genre
@@ -51,7 +51,7 @@ Review.create!(
 puts 'Review created ✅'
 puts
 puts 'Creating chatroom...'
-Chatroom.create!(name: '#test', concert_id: Concert.all.sample.id)
+Chatroom.create!(name: 'test', concert_id: Concert.all.sample.id)
 puts 'Chatroom created ✅'
 puts 'Creating messages...'
 3.times do
