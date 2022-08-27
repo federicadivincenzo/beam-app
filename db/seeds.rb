@@ -85,7 +85,7 @@ concert_4 = Concert.new(
   description: Faker::Lorem.paragraph(sentence_count: 3),
   rating: rand(1..5),
   genre: 'Rock',
-  photo: 'image.png'
+  photo: 'https://www.thereporteronline.com/wp-content/uploads/migration/2021/06/55627e100c4a82c80e4d0a7a78834d07.jpg?w=978'
 )
 concert_4.save!
 puts "Concert with #{concert_4.artist} at #{concert_4.venue} created ✅"
@@ -166,7 +166,7 @@ concert_10 = Concert.new(
   photo: 'https://media.gettyimages.com/photos/british-rock-band-muse-composed-by-bassist-christopher-wolstenholme-picture-id1060029064?s=612x612'
 )
 concert_10.save!
-puts "Concert with #{concert_9.artist} at #{concert_9.venue} created ✅"
+puts "Concert with #{concert_10.artist} at #{concert_10.venue} created ✅"
 
 puts '===================='
 puts 'Concerts created ✅'

@@ -49,9 +49,8 @@ $br-radius: 2em;
   background-size: cover;
   background-position: center;
   border-radius: var(--spacing-l);
-  width: 70%;
+  width: 100%;
   bottom: 0;
-  filter: brightness(0.75) saturate(1.2) contrast(0.85);
   left: 0;
   position: relative;
   right: 0;
@@ -70,6 +69,7 @@ $br-radius: 2em;
   position: absolute;
   bottom: 0;
   color: white;
+  text-shadow: rgb(228, 153, 23) 0px 0px 3px;
 }
 
 .card__category{

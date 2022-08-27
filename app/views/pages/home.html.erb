@@ -23,7 +23,7 @@
         <i class="fas fa-search"></i>
       <% end %>
     <% end %>
-    <%= link_to concerts_path, class: 'orange-link' do %>
+    <%= link_to concerts_path, class: 'orange-link', id: 'link-orange' do %>
       <p>See all concerts</p>
     <% end %>
   </div>
@@ -31,11 +31,11 @@
     <h2 class="my-3 w-75"><strong>Trending now</strong></h2>
     <div class="card-grid_scroll">
         <% @concerts.each do |concert| %>
-          <div class="card card__background" style="background-image: url(https://images.unsplash.com/photo-1557177324-56c542165309?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80)">
+          <div class="card card__background" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(<%= concert.photo %>)">
             <div class="card__content">
-              <p class="card__category"><%= concert.date %></p>
+              <p class="card__category"><strong><%= concert.date %></strong></p>
               <h3 class="card__heading"><%= link_to concert.artist, concert_path(concert) %></h3>
-              <p class="card__category"><%= concert.address %></p>
+              <p class="card__category"><strong><%= concert.address %></strong></p>
             </div>
           </div>
         <% end %>

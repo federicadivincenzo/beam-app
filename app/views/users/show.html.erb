@@ -7,17 +7,17 @@
     </div>
     <div class="text-center my-2 col-8 d-flex justify-content-around align-items-center">
         <div><div><strong><%= @reviewRating %></strong></div><div>Rating</div></div>
-        <div><div></div><div>10</div> <div>concerts</div></div>
+        <div><strong><div>10</div> </strong><div>concerts</div></div>
     </div>
     <div class="text-center my-2 col-8 d-flex justify-content-between align-items-center btnFlex">
-      <button class="btn-orange">msg</button>
-      <button class="btn-orange">conncet</button>
+      <button class="btn-orange">Chat</button>
+      <button class="btn-orange">Follow</button>
     </div>
     <div class="d-flex justify-content-between flex-column mt-4 col-12">
       <strong class="my-3">Latest concerts</strong>
       <div class="card-grid_scroll">
-        <% @concerts.each do |concert| %>
-          <div class="card card__background" style="background-image: url(https://images.unsplash.com/photo-1557177324-56c542165309?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80)">
+        <% @concerts.take(5).each do |concert| %>
+          <div class="card card__background" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(<%= concert.photo %>)">
             <div class="card__content">
               <p class="card__category"><%= concert.date %></p>
               <h3 class="card__heading"><%= link_to concert.artist, concert_path(concert) %></h3>
