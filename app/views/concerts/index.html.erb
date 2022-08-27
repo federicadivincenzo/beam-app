@@ -1,16 +1,16 @@
 <div class="index-container">
   <div class="container">
-  <div class="search-container">
-    <%= form_tag concerts_path, method: :get, class: "my-3 w-75 searchInputAndIcon w-100"  do %>
-      <%= text_field_tag :query,
-        params[:query],
-        class: "rounded-pill searchInput", placeholder: "Search for artist, venue, city"
-      %>
-      <%= button_tag do %>
-        <i class="fas fa-search"></i>
+    <div class="search-container">
+      <%= form_tag concerts_path, method: :get, class: "my-3 w-75 searchInputAndIcon w-100"  do %>
+        <%= text_field_tag :query,
+          params[:query],
+          class: "rounded-pill searchInput", placeholder: "Search for artist, venue, city"
+        %>
+        <%= button_tag do %>
+          <i class="fas fa-search"></i>
+        <% end %>
       <% end %>
-    <% end %>
-  </div>
+    </div>
   <section class="container">
   <h1>Recommended for you</h1>
     <div class="card-grid_scroll">

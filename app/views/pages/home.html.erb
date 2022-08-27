@@ -7,29 +7,40 @@
     <h1 class="logo_beam">Beam</h1>
   </div>
 </div> %>
-
-<div class="d-flex justify-content-between flex-column align-items-center">
-  <h1 class="my-3 w-75"> <strong>Lorem ipsum dolor sit amet consectetur adipisicing elit. Velit</strong></h1>
-  <%# <div class="searchInputAndIcon"> %>
-    <form action="" class="my-3 w-75 searchInputAndIcon">
-      <input class="rounded-pill searchInput" type="text" placeholder="Search for artist, venue, city">
-      <button><i class="fas fa-search"></i></button>
-    </form>
-  <%# </div> %>
-
-  <h2 class="my-3 w-75"><strong>trainding now</strong></h2>
-</div>
-
-<div class="card-grid_scroll">
-    <% @concerts.each do |concert| %>
-      <div class="card card__background" style="background-image: url(https://images.unsplash.com/photo-1557177324-56c542165309?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80)">
-        <div class="card__content">
-          <p class="card__category"><%= concert.date %></p>
-          <h3 class="card__heading"><%= link_to concert.artist, concert_path(concert) %></h3>
-          <p class="card__category"><%= concert.address %></p>
-        </div>
-      </div>
+<div class="container margin-bottom">
+  <div class="d-flex justify-content-between flex-column align-items-center">
+    <h1 class="my-3 w-75"> <strong>Lorem ipsum dolor sit amet consectetur adipisicing elit. Velit</strong></h1>
+    <%# <div class="searchInputAndIcon"> %>
+    <%# </div> %>
+  </div>
+  <div class="search-container text-center">
+    <%= form_tag concerts_path, method: :get, class: "my-3 w-75 searchInputAndIcon w-100"  do %>
+      <%= text_field_tag :query,
+        params[:query],
+        class: "rounded-pill searchInput", placeholder: "Search for artist, venue, city"
+      %>
+      <%= button_tag do %>
+        <i class="fas fa-search"></i>
+      <% end %>
     <% end %>
+    <%= link_to concerts_path, class: 'orange-link' do %>
+      <p>See all concerts</p>
+    <% end %>
+  </div>
+  <div class="body-container">
+    <h2 class="my-3 w-75"><strong>Trending now</strong></h2>
+    <div class="card-grid_scroll">
+        <% @concerts.each do |concert| %>
+          <div class="card card__background" style="background-image: url(https://images.unsplash.com/photo-1557177324-56c542165309?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80)">
+            <div class="card__content">
+              <p class="card__category"><%= concert.date %></p>
+              <h3 class="card__heading"><%= link_to concert.artist, concert_path(concert) %></h3>
+              <p class="card__category"><%= concert.address %></p>
+            </div>
+          </div>
+        <% end %>
+    </div>
+  </div>
 </div>
 <div class="footer-map">
     <div class="footer_content">
