@@ -1,6 +1,6 @@
 <div class="show-container">
-  <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/breakfast.jpg)">
-    Breakfast
+  <div class="card-category" style="background-image: url(<%= @concert.photo %>)">
+
   </div>
   <div class="container">
     <div class="concert-details">
@@ -27,7 +27,7 @@
     <div class="footer-map">
       <div class="footer_content">
         <p>+88 people attending </p>
-        <button class="btn-orange">JOIN NOW</button>
+        <button class="btn-orange"><%= link_to 'Join now', chatroom_path(@concert)  %></button>
       </div>
   </div>
 </div>
