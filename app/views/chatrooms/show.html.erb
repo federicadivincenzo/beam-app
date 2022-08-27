@@ -1,26 +1,26 @@
 <div class="container chatroom"
 data-controller="chatroom-subscription"
 data-chatroom-subscription-chatroom-id-value="<%= @chatroom.id %>">
-<div class="chatroom-name">
-<h1><%= @chatroom.name %></h1>
-</div>
+  <div class="chatroom-name">
+  <h1><%= @chatroom.name %></h1>
+  </div>
 
-<div style="overflow:scroll; height:400px;" class="messages" data-chatroom-subscription-target="messages">
-  <% @chatroom.messages.each do |message| %>
-      <%= render "messages/message", message: message %>
-  <% end %>
-</div>
+  <div style="overflow:scroll; height:400px;" class="messages" data-chatroom-subscription-target="messages">
+    <% @chatroom.messages.each do |message| %>
+        <%= render "messages/message", message: message %>
+    <% end %>
+  </div>
 
-<div class="chatroom-footer footer-chatroom">
-  <%= simple_form_for [@chatroom, @message],
-    remote: true,
-    html: {data: {action: "ajax:success->chatroom-subscription#resetForm"}, class: "d-flex" } do |f| %>
-    <%= f.input :content,
-      label: false,
-      placeholder: "Message #{@chatroom.name}",
-      wrapper_html: {class: "text-field flex-grow-1"}
-    %>
-    <%= f.submit "Send", class: "btn-orange-sm" %>
-  <% end %>
+  <div class="chatroom-footer footer-chatroom">
+    <%= simple_form_for [@chatroom, @message],
+      remote: true,
+      html: {data: {action: "ajax:success->chatroom-subscription#resetForm"}, class: "d-flex" } do |f| %>
+      <%= f.input :content,
+        label: false,
+        placeholder: "Message #{@chatroom.name}",
+        wrapper_html: {class: "text-field flex-grow-1"}
+      %>
+      <%= f.submit "Send", class: "btn-orange-sm" %>
+    <% end %>
+  </div>
 </div>
-
