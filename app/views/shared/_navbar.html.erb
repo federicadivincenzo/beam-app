@@ -81,7 +81,9 @@
 </nav> %>
 <%# mobile version %>
 <nav class="container d-flex align-items-center justify-content-between">
+  <%= link_to root_path do %>
   <%= image_tag "logo.png", alt: 'logo' %>
+  <% end %>
   <div class="dropdown">
     <i class="fas fa-bars" data-bs-toggle="dropdown" aria-expanded="false"></i>
     <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
