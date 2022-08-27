@@ -22,7 +22,7 @@
 
 <div class="card-grid_scroll">
     <% @concerts.each do |concert| %>
-      <div class="card card__background" style="background-image: url(https://images.unsplash.com/photo-1557177324-56c542165309?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80)">
+      <div class="card card__background" style="background-image: url(<%= concert.photo %>)">
         <div class="card__content">
           <p class="card__category"><%= concert.date %></p>
           <h3 class="card__heading"><%= link_to concert.artist, concert_path(concert) %></h3>
