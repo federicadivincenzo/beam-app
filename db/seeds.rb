@@ -168,7 +168,6 @@ concert_10 = Concert.new(
 concert_10.save!
 puts "Concert with #{concert_9.artist} at #{concert_9.venue} created ✅"
 
-
 puts '===================='
 puts 'Concerts created ✅'
 puts
@@ -184,9 +183,11 @@ Review.create!(
 puts 'Review created ✅'
 puts
 puts 'Creating chatroom...'
+
 Concert.all.each do |concert|
   Chatroom.create!(name: "test#{rand(1..10)}", concert_id: concert.id)
 end
+
 puts 'Chatroom created ✅'
 puts 'Creating messages...'
 Chatroom.all.each do |chatroom|
