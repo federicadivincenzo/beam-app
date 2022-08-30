@@ -1,24 +1,26 @@
-class UsermodelsController < ApplicationController
+class UsersConcertsController < ApplicationController
   before_action :set_concert, only: %i[attending? create]
+  before_action :set_user, only: %i[create]
 
   def create
-    @usermodel = UserModel.new(usermodel_params)
-    @usermodel.concert_id = @concert.id
-    @usermodel.user_id = current_user.id
-    @usermodel.save
-  end
-
-  def attending?
-    current_user.id == UserModel.user_id && UserModel.concert_id == @concert.id
+    @usersconcert = UsersConcert.new
+    @usersconcert.concert_id = @concert.id
+    @usersconcert.user_id = @user.id
+    @usersconcert.save
+    render 'concerts/show'
   end
 
   private
 
   def set_concert
-    @concert = Concert.find(params[:id])
+    @concert = Concert.find(params[:concert_id])
   end
 
-  def usermodel_params
-    params.require(:usermodel).permit(:concert_id, :user_id)
+  def set_user
+    @user = current_user
   end
+
+  # def users_concert_params
+  #   params.require(:users_concert).permit(:concert_id, :user_id)
+  # end
 end
