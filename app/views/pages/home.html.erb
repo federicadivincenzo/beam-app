@@ -31,7 +31,7 @@
     <h2 class="my-3 w-75"><strong>Trending now</strong></h2>
     <div class="card-grid_scroll">
         <% @concerts.each do |concert| %>
-          <div class="card card__background" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(<%= concert.photo %>)">
+          <div class="card" id="#card__background" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(<%= concert.photo %>)">
             <div class="card__content">
               <p class="card__category"><strong><%= concert.date %></strong></p>
               <h3 class="card__heading"><%= link_to concert.artist, concert_path(concert) %></h3>

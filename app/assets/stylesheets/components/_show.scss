@@ -13,7 +13,23 @@
 .fa-star, .fa-star-half{
   color: goldenrod;
 }
-
+#card__background{
+  background-size: cover;
+  background-position: center;
+  border-radius: var(--spacing-l);
+  width: 70%;
+  bottom: 0;
+  left: 0;
+  position: relative;
+  right: 0;
+  top: 0;
+  transform-origin: center;
+  transform: scale(1) translateZ(0);
+  transition:
+    filter 200ms linear,
+    transform 200ms linear;
+    border-radius: $br-radius;
+}
 .bar{
   background-color: white;
   width: 70px;
