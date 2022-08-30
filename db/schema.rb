@@ -66,15 +66,6 @@ ActiveRecord::Schema.define(version: 2022_08_27_095617) do
     t.index ["user_id"], name: "index_reviews_on_user_id"
   end
 
-  create_table "user_models", force: :cascade do |t|
-    t.bigint "user_id", null: false
-    t.bigint "concert_id", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["concert_id"], name: "index_user_models_on_concert_id"
-    t.index ["user_id"], name: "index_user_models_on_user_id"
-  end
-
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -93,12 +84,21 @@ ActiveRecord::Schema.define(version: 2022_08_27_095617) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  create_table "users_concerts", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "concert_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["concert_id"], name: "index_users_concerts_on_concert_id"
+    t.index ["user_id"], name: "index_users_concerts_on_user_id"
+  end
+
   add_foreign_key "chatrooms", "concerts"
   add_foreign_key "messages", "chatrooms"
   add_foreign_key "messages", "users"
   add_foreign_key "review_profiles", "users"
   add_foreign_key "reviews", "review_profiles"
   add_foreign_key "reviews", "users"
-  add_foreign_key "user_models", "concerts"
-  add_foreign_key "user_models", "users"
+  add_foreign_key "users_concerts", "concerts"
+  add_foreign_key "users_concerts", "users"
 end

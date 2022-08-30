@@ -9,7 +9,13 @@ class ConcertsController < ApplicationController
     end
   end
 
-  def show; end
+  def show
+    if UsersConcert.exists?(concert_id: params[:id])
+      @usersconcert = UsersConcert.find(params[:id])
+    else
+      @usersconcert = UsersConcert.new
+    end
+  end
 
   private
 
