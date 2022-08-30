@@ -5,7 +5,7 @@ data-chatroom-subscription-chatroom-id-value="<%= @chatroom.id %>">
   <h3>Concert: #<%= @chatroom.concert.artist %></h3>
   </div>
 
-  <div style="overflow:scroll; height:400px;" class="messages" data-chatroom-subscription-target="messages">
+  <div style="overflow:scroll; height:100%;" class="messages" data-chatroom-subscription-target="messages">
     <% @chatroom.messages.each do |message| %>
         <%= render "messages/message", message: message %>
     <% end %>
