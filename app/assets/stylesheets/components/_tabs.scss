@@ -1,7 +1,9 @@
 nav.stroke {
   display: flex;
+  flex-direction: row;
   overflow: scroll;
   gap: 1em;
+
 }
 
 nav.stroke div {
@@ -22,4 +24,22 @@ nav.stroke div:after {
 }
 nav.stroke div:hover:after {
   width: 100%;
+}
+
+nav {
+  background-color: transparent;
+  .tab {
+    width: 4em;
+    height: 4em;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 1em;
+
+    button {
+      background-color: transparent;
+    }
+
+  }
 }
