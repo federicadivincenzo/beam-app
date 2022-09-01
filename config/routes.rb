@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   resources :concerts, only: %i[index show] do
     resources :users_concerts, only: :create
   end
-  resources :chatrooms, only: :show do
+  resources :chatrooms, only: %i[index show] do
     resources :messages, only: :create
   end
 end

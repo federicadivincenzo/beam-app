@@ -1,0 +1,8 @@
+<div class="container">
+  <h1>talk to your lovely friends</h1>
+  <div>
+    <% @chatrooms.each do |chatroom| %>
+      <h2><%= link_to chatroom.name, chatroom_path(chatroom), id:"link-orange" %></h2>
+    <% end %>
+  </div>
+</div>
