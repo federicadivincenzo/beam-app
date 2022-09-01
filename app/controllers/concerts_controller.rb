@@ -2,8 +2,9 @@ class ConcertsController < ApplicationController
   before_action :set_concert, only: :show
 
   def index
+    @fav_concerts = Concert.all.sample(4)
     if params[:query].present?
-      @concerts = Concert.search_by_artist_address_venue_and_description(params[:query])
+      @concerts = Concert.search_by_artist_address_venue_genre_description(params[:query])
     else
       @concerts = Concert.all.order(created_at: :asc)
     end

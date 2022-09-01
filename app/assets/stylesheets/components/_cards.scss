@@ -23,9 +23,9 @@ $br-radius: 2em;
   gap: .8em;
   .card__heading{
     color: rgba(255,255,255,0.9) !important;
-    font-size: 1.4rem;
+    font-size: 1.2rem;
     text-shadow: 2px 2px 20px rgba(0,0,0,0.2);
-    line-height: 1.4;
+    line-height: 1;
     word-spacing: 100vw;
     font-weight: bold;
   }
@@ -69,7 +69,6 @@ $br-radius: 2em;
   position: absolute;
   bottom: 0;
   color: white;
-  text-shadow: rgb(228, 153, 23) 0px 0px 3px;
 }
 
 .card__category{
