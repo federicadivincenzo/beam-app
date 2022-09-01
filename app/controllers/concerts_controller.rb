@@ -12,7 +12,7 @@ class ConcertsController < ApplicationController
 
   def show
     if UsersConcert.exists?(concert_id: params[:id])
-      @usersconcert = UsersConcert.find(params[:id])
+      @usersconcert = UsersConcert.find_by(concert_id: params[:id])
     else
       @usersconcert = UsersConcert.new
     end

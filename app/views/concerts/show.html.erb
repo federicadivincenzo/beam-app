@@ -28,7 +28,7 @@
       <div class="footer_content">
         <p>+88 people attending </p>
         <% if @usersconcert.attending?(@concert, current_user) %>
-          <p>do something</p>
+          <button class="btn-orange"><%= link_to 'CHAT', chatroom_path(@concert.chatroom) %></button>
         <% else %>
           <button class="btn-orange "><%= button_to 'Join now', concert_users_concerts_path(@concert), class:"joinBtn" %></button>
         <% end %>
