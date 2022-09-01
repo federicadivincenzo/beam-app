@@ -1,7 +1,7 @@
 class Concert < ApplicationRecord
   has_one :chatroom
   has_many :users
-  has_many :user_concerts
+  has_many :users_concerts
   has_many :users, through: :users_concerts
   geocoded_by :address
   after_validation :geocode, if: :will_save_change_to_address?
