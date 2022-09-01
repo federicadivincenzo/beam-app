@@ -30,7 +30,7 @@
         <% if @usersconcert.attending?(@concert, current_user) %>
           <p>do something</p>
         <% else %>
-          <button class="btn-orange"><%= button_to 'Join now', concert_users_concerts_path(@concert) %></button>
+          <button class="btn-orange "><%= button_to 'Join now', concert_users_concerts_path(@concert), class:"joinBtn" %></button>
         <% end %>
       </div>
   </div>
