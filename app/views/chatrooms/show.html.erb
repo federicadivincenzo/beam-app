@@ -2,7 +2,7 @@
 data-controller="chatroom-subscription"
 data-chatroom-subscription-chatroom-id-value="<%= @chatroom.id %>">
   <div class="chatroom-name">
-  <h3>Concert: #<%= @chatroom.concert.artist %></h3>
+  <h3><%= @chatroom.name %></h3>
   </div>
 
   <div style="overflow:scroll; height:100%;" class="messages" data-chatroom-subscription-target="messages">

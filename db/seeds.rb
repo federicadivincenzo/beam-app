@@ -182,12 +182,12 @@ Review.create!(
 )
 puts 'Review created ✅'
 puts
-puts 'Creating chatroom...'
-Concert.all.each do |concert|
-  Chatroom.create!(name: "test#{rand(1..10)}", concert_id: concert.id)
-end
-puts 'Chatroom created ✅'
-puts
+# puts 'Creating chatroom...'
+# Concert.all.each do |concert|
+#   Chatroom.create!(name: "test#{rand(1..10)}", concert_id: concert.id)
+# end
+# puts 'Chatroom created ✅'
+# puts
 puts 'Creating messages...'
 Chatroom.all.each do |chatroom|
   Message.create!(content: Faker::Company.bs, user_id: User.all.sample.id, chatroom_id: chatroom.id)
