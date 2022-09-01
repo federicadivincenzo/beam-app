@@ -10,9 +10,9 @@
       </div>
       <div class="concert-details-list">
         <ul class="list-no-style">
-          <li><p><i class="fa-solid fa-calendar"></i> <%= @concert.date %></p></li>
-          <li><p><i class="fa-solid fa-location-crosshairs"></i> <%= @concert.venue %></p></li>
-          <li><p><i class="fa-solid fa-location-dot"></i> <%= @concert.address %></p></li>
+          <li><p><i class="fa-solid fa-calendar"></i><%= @concert.date %></p></li>
+          <li><p><i class="fa-solid fa-location-crosshairs"></i><%= @concert.venue %></p></li>
+          <li><p><i class="fa-solid fa-location-dot"></i><%= @concert.address %></p></li>
         </ul>
       </div>
       <div class="concert-details-bio">
@@ -30,7 +30,7 @@
         <% if @usersconcert.attending?(@concert, current_user) %>
           <button class="btn-orange"><%= link_to 'CHAT', chatroom_path(@concert.chatroom) %></button>
         <% else %>
-          <button class="btn-orange"><%= button_to 'Join now', concert_users_concerts_path(@concert) %></button>
+          <button class="btn-orange"><%= button_to 'JOIN', concert_users_concerts_path(@concert) %></button>
         <% end %>
       </div>
   </div>
