@@ -27,7 +27,9 @@
     <div class="footer-map">
       <div class="footer_content">
         <p>+88 people attending </p>
-        <% if @usersconcert.attending?(@concert, current_user) %>
+        <% if current_user == nil %>
+          <button class="btn-orange "><%= button_to 'Join now', new_user_session_path, class:"joinBtn" %></button>
+        <% elsif @usersconcert.attending?(@concert, current_user) %>
           <button class="btn-orange"><%= link_to 'CHAT', chatroom_path(@concert.chatroom) %></button>
         <% else %>
           <button class="btn-orange "><%= button_to 'Join now', concert_users_concerts_path(@concert), class:"joinBtn" %></button>
