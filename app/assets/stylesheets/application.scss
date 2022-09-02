@@ -12,3 +12,8 @@
 // Your CSS partials
 @import "components/index";
 @import "pages/index";
+
+.chat-index a {
+  text-decoration: none;
+  color: black;
+}
