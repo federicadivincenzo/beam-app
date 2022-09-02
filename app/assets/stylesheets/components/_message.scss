@@ -1,36 +1,11 @@
 .chatroom{
 height: calc(100vh - 194px);
 }
-.message-container-user {
+
+.message-container {
   display: flex;
-  flex-direction: row-reverse;
   gap: .4em;
-  .message-body {
-    position: relative;
-    background-color: rgb(251, 188, 106);
-    border-radius: 1em;
-    margin-bottom: 1em;
-    padding: .8em;
-    line-height: 1;
-    display: flex;
-    flex-direction: column;
-    p {
-      line-height: 1;
-    }
-    .message-body-time {
-      display: flex;
-      align-self: flex-end;
-      color: rgb(68, 68, 68);
-    }
-  }
-}
-
-
-
-.message-container-guests {
-  display: flex;
   flex-direction: row;
-  gap: .4em;
   .message-body {
     position: relative;
     background-color: #fbda6dd4;
@@ -48,6 +23,13 @@ height: calc(100vh - 194px);
       align-self: flex-end;
       color: rgb(68, 68, 68);
     }
+  }
+}
+
+.user {
+  flex-direction: row-reverse;
+  .message-body {
+    background-color: rgb(251, 188, 106);
   }
 }
 

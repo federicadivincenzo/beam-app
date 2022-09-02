@@ -11,7 +11,7 @@ data-chatroom-subscription-chatroom-id-value="<%= @chatroom.id %>">
     <% end %>
   </div>
 
-  <div class="chatroom-footer footer-chatroom">
+  <div class="container chatroom-footer footer-chatroom">
     <%= simple_form_for [@chatroom, @message],
       remote: true,
       html: {data: {action: "ajax:success->chatroom-subscription#resetForm"}, class: "d-flex" } do |f| %>
