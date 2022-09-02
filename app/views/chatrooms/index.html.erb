@@ -1,5 +1,6 @@
 <div class="container chat-index">
-  <% @chatrooms.each do |chatroom| %>
+
+  <% current_user.chatrooms.each do |chatroom| %>
   <%= link_to chatroom_path(chatroom) do %>
     <div class="chats-container">
       <div class="chat-content-image">
