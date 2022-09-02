@@ -7,7 +7,7 @@
           <p>Welcome back you have been missed!</p>
         </div>
       </div>
-      <div class="form-container">
+      <div class="form-container" data-controller="signin-password" >
         <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
           <div class="field">
             <% f.label :email %>
@@ -16,9 +16,9 @@
 
           <div class="field input-group mb-3">
             <% f.label :password %>
-            <%= f.password_field :password, placeholder: 'Password' , autocomplete: "current-password", class:'form-control' %>
+            <%= f.password_field :password, placeholder: 'Password' , autocomplete: "current-password", class:'form-control' , data: {target: "signin-password.input"} %>
             <div class="input-group-append">
-                <span class="input-group-text h-100" id="basic-addon2"><i class="fa fa-eye-slash" aria-hidden="true"></i></span>
+                <span class="input-group-text h-100" data-action="click->signin-password#view" id="basic-addon2"><i class="fa fa-eye-slash" data-signin-password-target="eye" aria-hidden="true"></i></span>
               </div>
           </div>
           <% if devise_mapping.rememberable? %>
