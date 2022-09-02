@@ -1,0 +1,19 @@
+<div class="container chat-index">
+  <% @chatrooms.each do |chatroom| %>
+  <%= link_to chatroom_path(chatroom) do %>
+    <div class="chats-container">
+      <div class="chat-content-image">
+       <%= image_tag(chatroom.concert.photo, class:'avatar-sm')  %>
+      </div>
+      <div class="chat-content">
+        <div class="chat-content-tile">
+          <span>Group: <%= chatroom.concert.artist %> </span>
+        </div>
+        <div class="chat-content-message">
+          <span><%= chatroom.messages.last.user.first_name %> : </span><%= chatroom.messages.last.content %> <span><small><%= chatroom.messages.last.created_at.strftime(" · %I:%M%p")%></small></span>
+        </div>
+      </div>
+    </div>
+  <% end %>
+  <% end %>
+</div>
