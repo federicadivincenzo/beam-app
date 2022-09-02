@@ -2,11 +2,11 @@
   <div class="row justify-content-center">
     <div class="col-10 d-flex justify-content-between flex-column align-items-center bio">
       <%= image_tag "#{@userphto}", class: "avatar text-center  dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false%>
-      <h1 class="text-center"><%= @username %></h1>
-      <p class="text-center">i'm just young dumb and broke, but i'm legend tho</p>
+      <h1 class="text-center"><%= @user.username %></h1>
+      <p class="text-center">@user.bio</p>
     </div>
     <div class="text-center my-2 col-8 d-flex justify-content-around align-items-center">
-        <div><div><strong><%= @reviewRating %></strong></div><div>Rating</div></div>
+        <div><div><strong><%= @reviews %></strong></div><div>Rating</div></div>
         <div><strong><div>10</div></strong><div>concerts</div></div>
     </div>
     <div class="text-center my-2 col-8 d-flex justify-content-between align-items-center btnFlex">
@@ -14,9 +14,9 @@
       <button class="btn-orange">Follow</button>
     </div>
     <div class="d-flex justify-content-between flex-column mt-4 col-12">
-      <strong class="my-3">Latest concerts</strong>
+      <strong class="my-3">Attending concerts</strong>
       <div class="card-grid_scroll">
-        <% @concerts.take(5).each do |concert| %>
+        <% @concerts.each do |concert| %>
           <div class="card" id="card__background" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(<%= concert.photo %>)">
             <div class="card__content">
               <p class="card__category"><%= concert.date %></p>
@@ -38,11 +38,11 @@
           <i class="far fa-star-half"></i>
         </div>
         <div>
-          <div class="d-flex justify-content-between align-items-center flexgap"><span>5 starts </span><span class="bar"></span></div>
-          <div class="d-flex justify-content-between align-items-center flexgap"><span>4 starts </span><span class="bar"></span></div>
-          <div class="d-flex justify-content-between align-items-center flexgap"><span>3 starts </span><span class="bar"></span></div>
-          <div class="d-flex justify-content-between align-items-center flexgap"><span>2 starts </span><span class="bar"></span></div>
-          <div class="d-flex justify-content-between align-items-center flexgap"><span>1 starts </span><span class="bar"></span></div>
+          <div class="d-flex justify-content-between align-items-center flexgap"><span>5 stars </span><span class="bar"></span></div>
+          <div class="d-flex justify-content-between align-items-center flexgap"><span>4 stars </span><span class="bar"></span></div>
+          <div class="d-flex justify-content-between align-items-center flexgap"><span>3 stars </span><span class="bar"></span></div>
+          <div class="d-flex justify-content-between align-items-center flexgap"><span>2 stars </span><span class="bar"></span></div>
+          <div class="d-flex justify-content-between align-items-center flexgap"><span>1 stars </span><span class="bar"></span></div>
         </div>
       </div>
     </div>
@@ -54,7 +54,7 @@
       <div>
         <strong>beam user</strong>
         <br>
-        <div><%= @username %> is really nice. We spent really great time at the concert ! Meet you soon ! “</div>
+        <div><%= @user.username %> is really nice. We spent really great time at the concert ! Meet you soon ! “</div>
       </div>
     </div>
   </div>

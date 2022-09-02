@@ -3,11 +3,11 @@ class UsersConcertsController < ApplicationController
   before_action :set_user, only: %i[create]
 
   def create
-    @usersconcert = UsersConcert.new
-    @usersconcert.concert_id = @concert.id
-    @usersconcert.user_id = @user.id
+    @usersconcert = UsersConcert.new(users_concert_params)
+    @usersconcert.concert = @concert
+    @usersconcert.user = @user
     @usersconcert.save
-    render 'concerts/show'
+    redirect_to concert_path(@concert)
   end
 
   private
@@ -20,7 +20,7 @@ class UsersConcertsController < ApplicationController
     @user = current_user
   end
 
-  # def users_concert_params
-  #   params.require(:users_concert).permit(:concert_id, :user_id)
-  # end
+  def users_concert_params
+    params.permit(:concert_id, :user_id)
+  end
 end

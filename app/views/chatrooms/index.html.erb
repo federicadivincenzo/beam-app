@@ -1,5 +1,5 @@
-<div class="container chat-index">
 
+<div class="container chat-index">
   <% current_user.chatrooms.each do |chatroom| %>
   <%= link_to chatroom_path(chatroom) do %>
     <div class="chats-container">
