@@ -16,6 +16,7 @@ class ConcertsController < ApplicationController
                     else
                       UsersConcert.new
                     end
+    @attendees = UsersConcert.where(concert_id: params[:id])
   end
 
   def attendees
