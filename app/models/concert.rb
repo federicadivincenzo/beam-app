@@ -17,4 +17,12 @@ class Concert < ApplicationRecord
   def set_chatroom
     Chatroom.create!(name: "#{artist} on #{date}", concert_id: id)
   end
+
+  def set_user_concert(concert_id)
+    if UsersConcert.exists?(concert_id: concert_id)
+      @usersconcert = UsersConcert.find_by(concert_id: concert_id)
+    else
+      @usersconcert = UsersConcert.new
+    end
+  end
 end
