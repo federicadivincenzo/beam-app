@@ -26,7 +26,7 @@
   </div>
     <div class="footer-map">
       <div class="footer_content">
-        <p>+88 people attending </p>
+        <p><%= @attendees.count %> attending</p>
         <% if current_user == nil %>
           <button class="btn-orange "><%= button_to 'Join now', new_user_session_path, class:"joinBtn" %></button>
         <% elsif @usersconcert.attending?(@concert, current_user) %>
