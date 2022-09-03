@@ -1,6 +1,8 @@
 .container-center {
   height: 100vh;
   display: flex;
+  margin-top: -20%;
+  overflow: hidden;
   justify-content: center;
   align-items: center;
   background: #faa237;  /* fallback for old browsers */
