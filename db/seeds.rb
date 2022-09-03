@@ -7,7 +7,9 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 require 'faker'
+require 'uri'
 
+random_url = URI.parse("https://source.unsplash.com/150x150/?portrait")
 puts 'Cleaning database...'
 Review.destroy_all
 Concert.destroy_all
@@ -18,7 +20,8 @@ puts 'Database cleaned ✅'
 puts
 puts 'Creating users...'
 for i in 1..10 do
-  user = User.create!(username: Faker::Internet.username(specifier: 5..10), email: "fake#{i}@gmail.com", password: 'password', photo: 'https://source.unsplash.com/150x150/?portrait')
+  response = Net::HTTP.get_response random_url
+  user = User.create!(username: Faker::Internet.username(specifier: 5..10), email: "fake#{i}@gmail.com", password: 'password', photo: response.to_hash['location'].first)
   ReviewProfile.create!(user_id: user.id)
 end
 puts 'Users created ✅'

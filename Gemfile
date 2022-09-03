@@ -67,6 +67,7 @@ gem "pundit"
 gem "geocoder"
 gem 'cloudinary', '~> 1.16.0'
 gem 'open-uri'
+gem 'uri'
 gem 'pg_search', '~> 2.3.0'
 gem 'dotenv-rails', groups: [:development, :test]
 gem 'stimulus-rails'
