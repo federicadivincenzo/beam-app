@@ -21,7 +21,12 @@
       </div>
     </div>
     <div class="container-map">
-      <img src="https://www.google.com/maps/d/thumbnail?mid=17x3faiz9oX3SJDpBJPjO-zu6jUQ" alt="">
+      <%# <img src="https://www.google.com/maps/d/thumbnail?mid=17x3faiz9oX3SJDpBJPjO-zu6jUQ" alt=""> %>
+      <div style="width: 100%; height: 200px;"
+          data-controller="mapbox"
+          data-mapbox-markers-value="<%= @markers.to_json %>"
+          data-mapbox-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+      </div>
     </div>
   </div>
     <div class="footer-map">

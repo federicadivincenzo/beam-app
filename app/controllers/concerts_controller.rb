@@ -8,6 +8,14 @@ class ConcertsController < ApplicationController
     else
       @concerts = Concert.all.order(created_at: :asc)
     end
+    @markers = @concerts.geocoded.map do |concert|
+      {
+        lat: concert.latitude,
+        lng: concert.longitude,
+        info_window: render_to_string(partial: "info_window", locals: { concert: concert }),
+        image_url: helpers.asset_url("logo.png"),
+      }
+    end
   end
 
   def show
