@@ -11,7 +11,7 @@ data-chatroom-subscription-chatroom-id-value="<%= @chatroom.id %>">
     <% end %>
   </div>
 
-  <div class="container chatroom-footer footer-chatroom">
+  <div class="footer-chatroom">
     <%= simple_form_for [@chatroom, @message],
       remote: true,
       html: {data: {action: "ajax:success->chatroom-subscription#resetForm"}, class: "d-flex" } do |f| %>
@@ -20,7 +20,9 @@ data-chatroom-subscription-chatroom-id-value="<%= @chatroom.id %>">
         placeholder: "Message ##{@chatroom.concert.artist}",
         wrapper_html: {class: "text-field flex-grow-1"}
       %>
-      <%= f.submit "Send", class: "btn-orange-sm" %>
+      <%= f.button :button, class: "btn-orange-sm" do %>
+        <i class="fa-regular fa-paper-plane"></i>
+      <% end %>
     <% end %>
   </div>
 </div>
