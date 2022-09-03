@@ -315,6 +315,7 @@ DEPENDENCIES
   stimulus-rails
   turbolinks (~> 5)
   tzinfo-data
+  uri
   web-console (>= 4.1.0)
   webdrivers
   webpacker (~> 5.0)
