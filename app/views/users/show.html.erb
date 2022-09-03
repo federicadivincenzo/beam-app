@@ -3,18 +3,18 @@
     <div class="col-10 d-flex justify-content-between flex-column align-items-center bio">
       <%= image_tag "#{@userphto}", class: "avatar text-center  dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false%>
       <h1 class="text-center"><%= @user.username %></h1>
-      <p class="text-center">@user.bio</p>
+      <p class="text-center"> <%= @user.bio %></p>
     </div>
     <div class="text-center my-2 col-8 d-flex justify-content-around align-items-center">
-        <div><div><strong><%= @reviews %></strong></div><div>Rating</div></div>
-        <div><strong><div>10</div></strong><div>concerts</div></div>
+        <div><div><strong>5.0</strong></div><div>Rating</div></div>
+        <div><strong><div><%= @concerts.count %></div></strong><div>concerts</div></div>
     </div>
     <div class="text-center my-2 col-8 d-flex justify-content-between align-items-center btnFlex">
       <button class="btn-orange">Chat</button>
       <button class="btn-orange">Follow</button>
     </div>
     <div class="d-flex justify-content-between flex-column mt-4 col-12">
-      <strong class="my-3">Attending concerts</strong>
+      <strong class="my-3">Upcoming concerts</strong>
       <div class="card-grid_scroll">
         <% @concerts.each do |concert| %>
           <div class="card" id="card__background" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(<%= concert.photo %>)">
@@ -53,12 +53,14 @@
     <% end %>
     </div>
     <hr>
-    <div class="py-2 reviewContent col-10 mb-2">
-      <div>
-        <strong>beam user</strong>
-        <br>
-        <div><%= @user.username %> is really nice. We spent really great time at the concert ! Meet you soon ! “</div>
+    <% @reviews.each do |review| %>
+      <div class="py-2 reviewContent col-10 mb-2">
+        <div>
+          <strong><%= @review.user.username %></strong>
+          <br>
+          <div><%=  %> is really nice. We spent really great time at the concert ! Meet you soon ! “</div>
+        </div>
       </div>
-    </div>
+    <% end %>
   </div>
 </div>

@@ -5,7 +5,7 @@ class UsersController < ApplicationController
   def show
     @concerts = Concert.joins(:users_concerts).where('users_concerts.user_id = ?', @user.id).order(created_at: :asc)
     # line 6 needs refactoring.
-    @reviews = Review.where(user_id: @user.id).order(created_at: :desc)
+    @reviews = Review.joins(:review_profiles).where(user_id: @user.id).order(created_at: :desc)
   end
 
   private
