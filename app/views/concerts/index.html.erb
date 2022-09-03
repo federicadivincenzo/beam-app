@@ -13,26 +13,24 @@
     </div>
   <section class="container">
   <h1>Recommended for you</h1>
-    <div class="card-grid_scroll card-grid" data-controller="edit-concerts">
+    <div class="card-grid_scroll card-grid" >
       <% @fav_concerts.each do |concert| %>
-        <div class="card" id="card__background" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(<%= concert.photo %>)" data-action="click->edit-concerts#displayForm">
+        <div class="card" id="card__background" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(<%= concert.photo %>)" data-controller="edit-concerts" data-action="click->edit-concerts#displayForm">
           <div class="card__content">
             <p class="card__category"><%= concert.date %></p>
             <h3 class="card__heading"><%= link_to concert.artist, concert_path(concert) %></h3>
             <p class="card__category"><%= concert.address %></p>
           </div>
-        <div class="d-none form-group-container d-flex flex-column justify-content-center align-items-center" data-edit-concerts-target="infos">
-          <%= link_to 'Discover', concert_path(concert), class: 'btn-orange mb-4' %>
-           <% if current_user == nil %>
-            <button class="btn-orange "><%= button_to 'Join now', new_user_session_path, class:"joinBtn" %></button>
-          <% else %>
-            <button class="btn-orange "><%= button_to 'Join now', concert_users_concerts_path(concert), class:"joinBtn" %></button>
-          <% end %>
-          <%# <%= simple_form_for concert, html: { class: "", data: { edit_movie_target: "form-join", action: "submit->edit-concerts#send_to_join" } } do |f| %>
-            <%# <% f.input :artist %>
-            <%# <%= f.submit 'JOIN NOW', class: 'btn-orange' %>
-          <%# <% end %>
-        </div>
+          <div class="form-group-container d-none d-flex flex-column justify-content-center align-items-center" data-edit-concerts-target="form">
+            <%= link_to 'Discover', concert_path(concert), class: 'btn-orange mb-4' %>
+            <% if current_user == nil %>
+              <button class="btn-orange "><%= button_to 'Join now', new_user_session_path, class:"joinBtn" %></button>
+            <% elsif concert.set_user_concert(concert).attending?(concert, current_user) %>
+              <button class="btn-orange"><%= link_to 'CHAT', chatroom_path(concert.chatroom) %></button>
+            <% else %>
+              <button class="btn-orange "><%= button_to 'Join now', concert_users_concerts_path(concert), class:"joinBtn" %></button>
+            <% end %>
+              </div>
         </div>
       <% end %>
     </div>

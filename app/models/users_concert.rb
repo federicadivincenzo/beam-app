@@ -6,4 +6,6 @@ class UsersConcert < ApplicationRecord
   def attending?(concert, current_user)
     current_user.id == self.user_id && self.concert_id == concert.id
   end
+
+
 end
