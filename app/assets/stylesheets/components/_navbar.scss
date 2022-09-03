@@ -1,14 +1,14 @@
-.navbar-lewagon {
-  justify-content: space-between;
-  background: white;
-  position: absolute;
-  top: 0;
-}
+// .navbar-lewagon {
+//   justify-content: space-between;
+//   background: white;
+//   position: absolute;
+//   top: 0;
+// }
 
-.nav-absolute {
-  position: absolute;
-  top: 0;
-}
+// .nav-absolute {
+//   position: absolute;
+//   top: 0;
+// }
 
 .navbar-lewagon .navbar-collapse {
   flex-grow: 0;
@@ -29,6 +29,5 @@ nav{
   position: sticky;
   top: 0;
   z-index: 999;
-  background-color: white;
-  opacity: 0.9;
+  height: 10%;
 }
