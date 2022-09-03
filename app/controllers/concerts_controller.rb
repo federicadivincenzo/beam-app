@@ -18,6 +18,10 @@ class ConcertsController < ApplicationController
                     end
   end
 
+  def attendees
+    UsersConcert.where(concert_id: params[:id]).count
+  end
+
   private
 
   def set_concert

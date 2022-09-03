@@ -10,9 +10,9 @@ class Concert < ApplicationRecord
   include PgSearch::Model
   pg_search_scope :search_by_artist_address_venue_genre_description,
                   against: %i[artist address venue description genre],
-                  using: {
-                         tsearch: { prefix: true }
-                         }
+                  using: { tsearch: { prefix: true } }
+
+  private
 
   def set_chatroom
     Chatroom.create!(name: "#{artist} on #{date}", concert_id: id)

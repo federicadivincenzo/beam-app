@@ -7,7 +7,4 @@ class UsersConcert < ApplicationRecord
     current_user.id == user_id && concert_id == concert.id
   end
 
-  def count
-    UsersConcert.where(concert_id: params[:id]).count
-  end
 end
