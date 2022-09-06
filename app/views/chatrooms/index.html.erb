@@ -11,7 +11,7 @@
           <span>Group: <%= chatroom.concert.artist %> </span>
         </div>
         <div class="chat-content-message">
-          <span><%= chatroom.messages.last.user.first_name %> : </span><%= chatroom.messages.last.content %> <span><small><%= chatroom.messages.last.created_at.strftime(" · %I:%M%p")%></small></span>
+          <span><%= chatroom.messages.last.user.username %>: </span><%= chatroom.messages.last.content %> <span><small><%= chatroom.messages.last.created_at.strftime(" · %I:%M%p")%></small></span>
         </div>
       </div>
     </div>
