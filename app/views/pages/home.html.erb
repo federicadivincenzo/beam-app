@@ -33,9 +33,9 @@
         <% @concerts.each do |concert| %>
           <div class="card" id="#card__background" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(<%= concert.photo %>)">
             <div class="card__content">
-              <p class="card__category"><strong><%= concert.date %></strong></p>
+              <p class="card__category"><%= concert.date %></p>
               <h3 class="card__heading"><%= link_to concert.artist, concert_path(concert) %></h3>
-              <p class="card__category"><strong><%= concert.address %></strong></p>
+              <p class="card__category location"><%= concert.address %></p>
             </div>
           </div>
         <% end %>

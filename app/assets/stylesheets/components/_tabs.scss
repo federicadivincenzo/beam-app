@@ -26,21 +26,41 @@ nav.stroke div:after {
 nav.stroke div:hover:after {
   width: 100%;
 }
+nav.stroke div:active:after {
+  width: 100%;
+}
+nav.stroke div:focus:after {
+  width: 100%;
+}
 
-nav {
+
+nav.categories_tabs {
   background-color: transparent;
+  padding: 0px 1em;
+
   .tab {
-    width: 4em;
     height: 4em;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    padding: 1em;
 
     button {
       background-color: transparent;
     }
 
   }
+  ::-webkit-scrollbar {
+    display: none;
+  }
+  p {
+    font-size: 12px;
+  }
+  i {
+    font-size: 24px;
+  }
+}
+
+.tab-container {
+  box-shadow: rgba(0, 0, 0, 0.45) 0px 15px 10px -15px;
 }

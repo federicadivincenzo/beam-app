@@ -1,0 +1,13 @@
+.card-grid-modal {
+  position: absolute;
+  background-color: rgba(211, 211, 211, 0.876);
+  left: 50%;
+  transform: translate(-50%, 0);
+}
+
+.user-card-container {
+  width: 70%;
+  padding: 1em;
+  border-radius: 1em;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+}
