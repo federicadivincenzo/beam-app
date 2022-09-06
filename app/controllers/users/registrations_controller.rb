@@ -12,6 +12,8 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # POST /resource
   def create
     super
+    User.last.username = params[:username]
+    User.last.save!
     ReviewProfile.create!(user_id: User.last.id)
   end
 
