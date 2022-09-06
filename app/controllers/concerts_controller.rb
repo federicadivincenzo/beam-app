@@ -8,9 +8,24 @@ class ConcertsController < ApplicationController
                 else
                   Concert.all.order(created_at: :asc)
                 end
+    @markers = @concerts.geocoded.map do |concert|
+      {
+        lat: concert.latitude,
+        lng: concert.longitude,
+        info_window: render_to_string(partial: "info_window", locals: { concert: concert }),
+        image_url: helpers.asset_url("logo.png"),
+      }
+    end
   end
 
   def show
+    @markers = [ {
+      lat: @concert.latitude,
+      lng: @concert.longitude,
+      info_window: render_to_string(partial: "info_window", locals: { concert: @concert }),
+      image_url: helpers.asset_url("logo.png"),
+      location: "show"
+    } ]
     @usersconcert = if UsersConcert.exists?(concert_id: params[:id])
                       UsersConcert.find_by(concert_id: params[:id])
                     else
@@ -18,10 +33,10 @@ class ConcertsController < ApplicationController
                     end
     @attendees = UsersConcert.where(concert_id: params[:id])
   end
-
-  def attendees
+   
+ def attendees
     UsersConcert.where(concert_id: params[:id]).count
-  end
+ end
 
   private
 
