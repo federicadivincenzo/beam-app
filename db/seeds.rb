@@ -93,7 +93,7 @@ puts "Concert with #{concert_4.artist} at #{concert_4.venue} created ✅"
 concert_5 = Concert.new(
   artist: 'The Cure',
   date: Faker::Date.between(from: '2022-01-01', to: '2024-01-01'),
-  address: 'Milan',
+  address: '16 Villa Gaudelet, Paris',
   venue: 'Assago Forum',
   description: Faker::Lorem.paragraph(sentence_count: 3),
   rating: rand(1..5),

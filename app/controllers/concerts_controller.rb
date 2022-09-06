@@ -19,6 +19,13 @@ class ConcertsController < ApplicationController
   end
 
   def show
+    @markers = [ {
+      lat: @concert.latitude,
+      lng: @concert.longitude,
+      info_window: render_to_string(partial: "info_window", locals: { concert: @concert }),
+      image_url: helpers.asset_url("logo.png"),
+      location: "show"
+    } ]
     if UsersConcert.exists?(concert_id: params[:id])
       @usersconcert = UsersConcert.find_by(concert_id: params[:id])
     else
