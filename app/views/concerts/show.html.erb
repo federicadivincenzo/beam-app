@@ -3,9 +3,7 @@
 
   </div>
 
-  <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
-  Launch demo modal
-</button>
+
 
 <!-- Modal -->
   <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -19,24 +17,6 @@
                 <%= link_to user_path(attendee.user.id) do %>
                   <p class="card-fullname"><%= attendee.user.username %></p>
                 <% end %>
-              </div>
-            </div>
-            <div class="attendee-card">
-              <div class="card-content">
-                <%= image_tag attendee.user.photo, class: 'avatar-sm'  %>
-                <p class="card-fullname"><%= attendee.user.username %></p>
-              </div>
-            </div>
-            <div class="attendee-card">
-              <div class="card-content">
-                <%= image_tag attendee.user.photo, class: 'avatar-sm'  %>
-                <p class="card-fullname"><%= attendee.user.username %></p>
-              </div>
-            </div>
-            <div class="attendee-card">
-              <div class="card-content">
-                <%= image_tag attendee.user.photo, class: 'avatar-sm'  %>
-                <p class="card-fullname"><%= attendee.user.username %></p>
               </div>
             </div>
           <% end %>
@@ -69,14 +49,9 @@
   </div>
     <div class="footer-map">
       <div class="footer_content">
-        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
           <p><%= @attendees.count %> attending</p>
         </button>
-
-
-
-
-
         <% if current_user == nil %>
           <button class="btn-orange "><%= button_to 'Join now', new_user_session_path, class:"joinBtn" %></button>
         <% elsif @usersconcert.attending?(@concert, current_user) %>
@@ -90,7 +65,3 @@
 
 
 <%= link_to "Back to the list", concerts_path %>
-
-<div class="mb-5">
-
-</div>
