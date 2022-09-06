@@ -2,7 +2,49 @@
   <div class="card-category" style="background-image: url(<%= @concert.photo %>)">
 
   </div>
-  <div class="container">
+
+  <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+  Launch demo modal
+</button>
+
+<!-- Modal -->
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="card-grid_column card-grid-modal user-card-container">
+          <%  @attendees.each do |attendee| %>
+            <div class="attendee-card">
+              <div class="card-content">
+                <%= image_tag attendee.user.photo, class: 'avatar-sm'  %>
+                <%= link_to user_path(attendee.user.id) do %>
+                  <p class="card-fullname"><%= attendee.user.username %></p>
+                <% end %>
+              </div>
+            </div>
+            <div class="attendee-card">
+              <div class="card-content">
+                <%= image_tag attendee.user.photo, class: 'avatar-sm'  %>
+                <p class="card-fullname"><%= attendee.user.username %></p>
+              </div>
+            </div>
+            <div class="attendee-card">
+              <div class="card-content">
+                <%= image_tag attendee.user.photo, class: 'avatar-sm'  %>
+                <p class="card-fullname"><%= attendee.user.username %></p>
+              </div>
+            </div>
+            <div class="attendee-card">
+              <div class="card-content">
+                <%= image_tag attendee.user.photo, class: 'avatar-sm'  %>
+                <p class="card-fullname"><%= attendee.user.username %></p>
+              </div>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+
     <div class="concert-details">
       <div class="concert-details-title">
         <h1><%= @concert.artist %></h1>
@@ -23,10 +65,18 @@
     <div class="container-map">
       <img src="https://www.google.com/maps/d/thumbnail?mid=17x3faiz9oX3SJDpBJPjO-zu6jUQ" alt="">
     </div>
+
   </div>
     <div class="footer-map">
       <div class="footer_content">
-        <p><%= @attendees.count %> attending</p>
+        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+          <p><%= @attendees.count %> attending</p>
+        </button>
+
+
+
+
+
         <% if current_user == nil %>
           <button class="btn-orange "><%= button_to 'Join now', new_user_session_path, class:"joinBtn" %></button>
         <% elsif @usersconcert.attending?(@concert, current_user) %>
@@ -40,3 +90,7 @@
 
 
 <%= link_to "Back to the list", concerts_path %>
+
+<div class="mb-5">
+
+</div>
