@@ -10,6 +10,10 @@ class UsersConcertsController < ApplicationController
     redirect_to concert_path(@concert)
   end
 
+  def count
+    UsersConcert.where(concert_id: params[:id]).count
+  end
+
   private
 
   def set_concert

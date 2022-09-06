@@ -1,7 +1,7 @@
 <div class="container">
   <div class="row justify-content-center">
     <div class="col-10 d-flex justify-content-between flex-column align-items-center bio">
-      <%= image_tag "#{@userphto}", class: "avatar text-center  dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false%>
+      <%= image_tag "#{@user.photo}", class: "avatar-large text-center  dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false%>
       <h1 class="text-center"><%= @user.username %></h1>
       <p class="text-center"> <%= @user.bio %></p>
     </div>
@@ -10,8 +10,15 @@
         <div><strong><div><%= @concerts.count %></div></strong><div>concerts</div></div>
     </div>
     <div class="text-center my-2 col-8 d-flex justify-content-between align-items-center btnFlex">
-      <button class="btn-orange">Chat</button>
-      <button class="btn-orange">Follow</button>
+      <% if current_user == @user %>
+        <%# < class="btn-orange"><%= link_to "My Chats", chatrooms_path</button> %>
+        <%= link_to "My Chats", chatrooms_path, class: 'btn-orange' %>
+        <%= link_to "Edit", edit_user_registration_path, class: 'btn-orange' %>
+
+      <% else %>
+        <%= link_to 'Chat', user_path(@user), class: 'btn-orange'%>
+        <%= link_to "Add Review", review_path, class: 'btn-orange' %>
+      <% end %>
     </div>
     <div class="d-flex justify-content-between flex-column mt-4 col-12">
       <strong class="my-3">Upcoming concerts</strong>
@@ -27,40 +34,21 @@
         <% end %>
       </div>
       <strong class="my-3">Reviews</strong>
-      <div class='reviews rounded d-flex justify-content-between align-items-center px-3 mb-4 col-12'>
-        <div>
-          <div><strong>4.5/5</strong></div>
-          <p>Based on 120 reviews</p>
-          <i class="fas fa-star"></i>
-          <i class="fas fa-star"></i>
-          <i class="fas fa-star"></i>
-          <i class="fas fa-star"></i>
-          <i class="far fa-star-half"></i>
+      <%= "No reviews" if @reviews.count == 0 %>
+      <% @reviews.each do |review| %>
+        <div class="py-2 reviewContent col-10 mb-2">
+          <ul>
+            <div>
+              <strong><%= review.user.username %></strong>
+              <br>
+              <div>
+              <%= review.content %>
+              </div>
+            </div>
+          </ul>
         </div>
-        <div>
-          <div class="d-flex justify-content-between align-items-center flexgap"><span>5 stars </span><span class="bar"></span></div>
-          <div class="d-flex justify-content-between align-items-center flexgap"><span>4 stars </span><span class="bar"></span></div>
-          <div class="d-flex justify-content-between align-items-center flexgap"><span>3 stars </span><span class="bar"></span></div>
-          <div class="d-flex justify-content-between align-items-center flexgap"><span>2 stars </span><span class="bar"></span></div>
-          <div class="d-flex justify-content-between align-items-center flexgap"><span>1 stars </span><span class="bar"></span></div>
-        </div>
-      </div>
-    </div>
-    <div class="mb-2">
-    <%= link_to review_path, class:'orange-link' do %>
-      <i class="fas fa-plus-circle"></i>
-      <span>Add review</span>
-    <% end %>
+      <% end %>
     </div>
     <hr>
-    <% @reviews.each do |review| %>
-      <div class="py-2 reviewContent col-10 mb-2">
-        <div>
-          <strong><%= review.user.username %></strong>
-          <br>
-          <div><%=  %> is really nice. We spent really great time at the concert ! Meet you soon ! “</div>
-        </div>
-      </div>
-    <% end %>
   </div>
 </div>

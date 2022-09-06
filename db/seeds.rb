@@ -7,7 +7,9 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 require 'faker'
+require 'uri'
 
+random_url = URI.parse("https://source.unsplash.com/150x150/?portrait")
 puts 'Cleaning database...'
 Review.destroy_all
 Concert.destroy_all
@@ -17,9 +19,14 @@ Chatroom.destroy_all
 puts 'Database cleaned ✅'
 puts
 puts 'Creating users...'
-User.create!(username: 'fakeuser1', email: 'fake1@gmail.com', password: 'password', photo: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=928&q=80')
-User.create!(username: 'fakeuser2', email: 'fake2@gmail.com', password: 'password', photo: 'https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=774&q=80')
-User.create!(username: 'fakeuser3', email: 'fake3@gmail.com', password: 'password', photo: 'https://images.unsplash.com/photo-1580489944761-15a19d654956?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=922&q=80')
+for i in 1..10 do
+  response = Net::HTTP.get_response random_url
+  user = User.create!(username: Faker::Internet.username(specifier: 5..10),
+                      email: "fake#{i}@gmail.com",
+                      password: 'password',
+                      photo: response.to_hash['location'].first)
+  ReviewProfile.create!(user_id: user.id)
+end
 puts 'Users created ✅'
 puts
 puts 'Creating concerts...'
@@ -172,15 +179,16 @@ puts '===================='
 puts 'Concerts created ✅'
 puts
 puts 'Creating review...'
-reviewprofile = ReviewProfile.create!(user_id: User.first.id)
-user = User.last
-Review.create!(
-  rating: rand(1..5),
-  content: Faker::Lorem.paragraph(sentence_count: 3),
-  user_id: user.id,
-  review_profile_id: reviewprofile.id
-)
-puts 'Review created ✅'
+10.times do
+  user = User.all.sample
+  Review.create!(
+    rating: rand(1..5),
+    content: Faker::Lorem.paragraph(sentence_count: 3),
+    user_id: user.id,
+    review_profile_id: User.all.where("id != ?", user.id).sample.id
+  )
+  puts 'Review created ✅'
+end
 puts
 # puts 'Creating chatroom...'
 # Concert.all.each do |concert|

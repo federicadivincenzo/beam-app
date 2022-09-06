@@ -7,12 +7,19 @@ class Concert < ApplicationRecord
   after_validation :geocode, if: :will_save_change_to_address?
   after_create :set_chatroom
 
+  def set_user_concert(concert_id)
+    if UsersConcert.exists?(concert_id: concert_id)
+      @usersconcert = UsersConcert.find_by(concert_id: concert_id)
+    else
+      @usersconcert = UsersConcert.new
+    end
+  end
   include PgSearch::Model
   pg_search_scope :search_by_artist_address_venue_genre_description,
                   against: %i[artist address venue description genre],
-                  using: {
-                         tsearch: { prefix: true }
-                         }
+                  using: { tsearch: { prefix: true } }
+
+  private
 
   def set_chatroom
     Chatroom.create!(name: "#{artist} on #{date}", concert_id: id)
