@@ -1,6 +1,6 @@
 <div id="message-<%= message.id %>" class="message-container <%= "user" if current_user == message.user %>">
   <div class="message-container-photo">
-    <%= image_tag message.user.photo, class: "avatar", alt: "avatar" %>
+    <%= link_to (image_tag (message.user.photo), class: "avatar-sm", alt: "avatar"), user_path(message.user) %>
   </div>
   <div class="message-body">
     <p><strong><%= message.user.username %></strong></p>
