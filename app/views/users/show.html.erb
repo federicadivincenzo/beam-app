@@ -1,7 +1,8 @@
 <div class="container">
   <div class="row justify-content-center">
     <div class="col-10 d-flex justify-content-between flex-column align-items-center bio">
-      <%= image_tag "#{@user.photo}", class: "avatar-large text-center  dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false%>
+      <% photo = @user.photo ? @user.photo : "https://thumbs.dreamstime.com/b/default-avatar-profile-trendy-style-social-media-user-icon-187599373.jpg" %>
+      <%= image_tag "#{photo}", class: "avatar-large text-center  dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false%>
       <h1 class="text-center"><%= @user.username %></h1>
       <p class="text-center"> <%= @user.bio %></p>
     </div>
