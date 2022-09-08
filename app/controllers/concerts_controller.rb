@@ -33,10 +33,10 @@ class ConcertsController < ApplicationController
                     end
     @attendees = UsersConcert.where(concert_id: params[:id])
   end
-   
- def attendees
+
+  def attendees
     UsersConcert.where(concert_id: params[:id]).count
- end
+  end
 
   private
 

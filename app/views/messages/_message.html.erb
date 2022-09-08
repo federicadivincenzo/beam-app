@@ -1,6 +1,7 @@
 <div id="message-<%= message.id %>" class="message-container <%= "user" if current_user == message.user %>">
   <div class="message-container-photo">
-    <%= link_to (image_tag (message.user.photo), class: "avatar-sm", alt: "avatar"), user_path(message.user) %>
+    <% photo = message.user.photo ? message.user.photo : "https://thumbs.dreamstime.com/b/default-avatar-profile-trendy-style-social-media-user-icon-187599373.jpg" %>
+    <%= link_to (image_tag (photo), class: "avatar-sm", alt: "avatar"), user_path(message.user) %>
   </div>
   <div class="message-body">
     <p><strong><%= message.user.username %></strong></p>
