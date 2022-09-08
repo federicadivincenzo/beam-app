@@ -1,6 +1,9 @@
 Rails.application.routes.draw do
   devise_for :users, controllers: { registrations: 'users/registrations' }
   root to: 'pages#home'
+
+  get "map", to:'concerts#map', as: :map
+
   resources :users, only: %i[show] do
     resources :reviews, only: %i[create new]
   end

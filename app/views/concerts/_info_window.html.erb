@@ -1,2 +1,4 @@
-<h2><%= concert.artist %></h2>
-<p><%= concert.address %></p>
+<div class="card__background">
+  <h3 class="card__heading" style="color:black"><%= link_to concert.artist, concert_path(concert) %></h3>
+  <h3 class="card__heading"><%= concert.date %></h3>
+</div>
