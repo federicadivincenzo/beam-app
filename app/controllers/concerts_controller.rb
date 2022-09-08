@@ -22,9 +22,9 @@ class ConcertsController < ApplicationController
     # @concert = Concert
     @concerts = if params[:query].present?
                 Concert.search_by_artist_address_venue_genre_description(params[:query])
-              else
+                else
                 Concert.all.order(created_at: :asc)
-              end
+                end
     @markers = @concerts.geocoded.map do |concert|  {
       lat: concert.latitude,
       lng: concert.longitude,
@@ -52,11 +52,8 @@ class ConcertsController < ApplicationController
     @attendees = UsersConcert.where(concert_id: params[:id])
   end
 
-<<<<<<< HEAD
- def attendees
-=======
+
   def attendees
->>>>>>> 6cef560a60f37617d37f108f73e78680f66a7745
     UsersConcert.where(concert_id: params[:id]).count
   end
 
