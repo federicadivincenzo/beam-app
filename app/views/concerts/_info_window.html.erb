@@ -1,2 +1,15 @@
-<h2><%= concert.artist %></h2>
-<p><%= concert.address %></p>
+
+<div class="card__content" style="background-color:#FF7E06">
+  <p class="card__category"></p>
+  <h3 class="card__heading"></h3>
+  <p class="card__category location"></p>
+</div>
+<div class="card" style="width: 18rem;">
+  <img class="card-img-top" src="<%= concert.photo %>" alt="Card image cap">
+  <div class="card-body">
+    <h5 class="card-title"><%= link_to concert.artist, concert_path(concert) %></h5>
+    <p class="card-text"><%= concert.date %></p>
+    <p class="><%= concert.address  %></p>
+    <%# <a href="#" class="btn btn-primary">Go somewhere</a> %>
+  </div>
+</div>
