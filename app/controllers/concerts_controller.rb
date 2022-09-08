@@ -52,9 +52,13 @@ class ConcertsController < ApplicationController
     @attendees = UsersConcert.where(concert_id: params[:id])
   end
 
+<<<<<<< HEAD
  def attendees
+=======
+  def attendees
+>>>>>>> 6cef560a60f37617d37f108f73e78680f66a7745
     UsersConcert.where(concert_id: params[:id]).count
- end
+  end
 
   private
 
