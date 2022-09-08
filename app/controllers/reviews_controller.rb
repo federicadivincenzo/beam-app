@@ -1,13 +1,15 @@
 class ReviewsController < ApplicationController
   before_action :set_user_being_reviewed, only: %i[create new]
 
-  def home; end
-
   def create
     @review = Review.new(review_params)
     @review.user_id = current_user.id
     @review.review_profile_id = @reviewed_user.id
-    redirect_to user_path(@reviewed_user)
+    if @review.save!
+      redirect_to user_path(@reviewed_user)
+    else
+      render :new
+    end
   end
 
   def new
@@ -17,7 +19,7 @@ class ReviewsController < ApplicationController
   private
 
   def set_user_being_reviewed
-    @reviewed_user = User.find(params[:id])
+    @reviewed_user = User.find(params[:user_id])
   end
 
   def review_params
