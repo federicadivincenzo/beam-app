@@ -198,7 +198,9 @@ puts
 # puts
 puts 'Creating messages...'
 Chatroom.all.each do |chatroom|
-  Message.create!(content: Faker::Company.bs, user_id: User.all.sample.id, chatroom_id: chatroom.id)
+  user = User.all.sample
+  Message.create!(content: Faker::Company.bs, user_id: user.id, chatroom_id: chatroom.id)
+  UsersConcert.create!(user_id: user.id, concert_id: chatroom.concert_id)
 end
 puts 'Messages created ✅'
 puts
