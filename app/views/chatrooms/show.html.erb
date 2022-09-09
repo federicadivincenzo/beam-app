@@ -6,7 +6,7 @@ data-chatroom-subscription-chatroom-id-value="<%= @chatroom.id %>">
   </div>
 
   <div style="overflow:scroll; height:100%;" class="messages" data-chatroom-subscription-target="messages">
-    <% @chatroom.messages.each do |message| %>
+    <% @messages.each do |message| %>
         <%= render "messages/message", message: message %>
     <% end %>
   </div>
@@ -21,7 +21,8 @@ data-chatroom-subscription-chatroom-id-value="<%= @chatroom.id %>">
         wrapper_html: {class: "text-field flex-grow-1"}
       %>
       <%= f.button :button, class: "btn-orange-sm" do %>
-        <i class="fa-regular fa-paper-plane"></i>
+        <i class="fa-regular fa-paper-plane" >
+        </i>
       <% end %>
     <% end %>
   </div>
