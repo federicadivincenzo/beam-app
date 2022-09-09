@@ -1,20 +1,43 @@
 
 <div class="container chat-index">
   <% current_user.chatrooms.each do |chatroom| %>
-  <%= link_to chatroom_path(chatroom) do %>
-    <div class="chats-container">
-      <div class="chat-content-image">
-       <%= image_tag(chatroom.concert.photo, class:'avatar-sm')  %>
-      </div>
-      <div class="chat-content">
-        <div class="chat-content-tile">
-          <span>Group: <%= chatroom.concert.artist %> </span>
+    <%= link_to chatroom_path(chatroom) do %>
+      <div class="chats-container">
+        <div class="chat-content-image">
+        <%= image_tag(chatroom.private? ? chatroom.set_second_user(current_user).photo : chatroom.concert.photo, class:'avatar-sm')  %>
         </div>
-        <div class="chat-content-message">
-          <span><%= chatroom.messages.last.user.username %>: </span><%= chatroom.messages.last.content %> <span><small><%= chatroom.messages.last.created_at.strftime(" · %I:%M%p")%></small></span>
+        <div class="chat-content">
+          <div class="chat-content-tile">
+            <span><%= chatroom.private? ? "To: #{chatroom.set_second_user(current_user).username}" : "Group: #{chatroom.concert.artist}" %> </span>
+          </div>
+          <div class="chat-content-message">
+            <span><%= chatroom.messages.last.user.username %>: </span><%= chatroom.messages.last.content %> <span><small><%= chatroom.messages.last.created_at.strftime(" · %I:%M%p")%></small></span>
+          </div>
         </div>
       </div>
-    </div>
+    <% end %>
   <% end %>
+
+
+  <% Chatroom.joins(:conversation).where('guest_id = ?', current_user.id).each do |chatroom| %>
+    <%= link_to chatroom_path(chatroom) do %>
+      <div class="chats-container">
+        <div class="chat-content-image">
+        <%= image_tag(chatroom.private? ? chatroom.set_second_user(current_user).photo : chatroom.concert.photo, class:'avatar-sm')  %>
+        </div>
+        <div class="chat-content">
+          <div class="chat-content-tile">
+            <span>From: <%= chatroom.private? ? chatroom.set_second_user(current_user).username : chatroom.concert.artist %> </span>
+          </div>
+          <div class="chat-content-message">
+            <% if chatroom.messages.count > 0 %>
+              <span><%= chatroom.messages.last.user.username %>: </span><%= chatroom.messages.last.content %> <span><small><%= chatroom.messages.last.created_at.strftime(" · %I:%M%p")%></small></span>
+            <% else %>
+              <span>No massages yet. Say hi!</span>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    <% end %>
   <% end %>
 </div>

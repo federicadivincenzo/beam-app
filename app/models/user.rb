@@ -4,6 +4,8 @@ class User < ApplicationRecord
   has_many :review_profiles
   has_many :reviews, through: :review_profiles
   has_many :reviews
+  has_many :host_conversations, class_name: 'Conversation', foreign_key: 'host_id'
+  has_many :guest_conversations, class_name: 'Conversation', foreign_key: 'guest_id'
 
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable

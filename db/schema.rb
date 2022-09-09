@@ -10,17 +10,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_08_27_095617) do
+ActiveRecord::Schema.define(version: 2022_09_09_103956) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "chatrooms", force: :cascade do |t|
     t.string "name"
-    t.bigint "concert_id", null: false
+    t.bigint "concert_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.boolean "private", default: false
+    t.bigint "conversation_id"
     t.index ["concert_id"], name: "index_chatrooms_on_concert_id"
+    t.index ["conversation_id"], name: "index_chatrooms_on_conversation_id"
   end
 
   create_table "concerts", force: :cascade do |t|
@@ -36,6 +39,15 @@ ActiveRecord::Schema.define(version: 2022_08_27_095617) do
     t.float "latitude"
     t.float "longitude"
     t.string "photo"
+  end
+
+  create_table "conversations", force: :cascade do |t|
+    t.bigint "host_id"
+    t.bigint "guest_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["guest_id"], name: "index_conversations_on_guest_id"
+    t.index ["host_id"], name: "index_conversations_on_host_id"
   end
 
   create_table "messages", force: :cascade do |t|
@@ -94,6 +106,9 @@ ActiveRecord::Schema.define(version: 2022_08_27_095617) do
   end
 
   add_foreign_key "chatrooms", "concerts"
+  add_foreign_key "chatrooms", "conversations"
+  add_foreign_key "conversations", "users", column: "guest_id"
+  add_foreign_key "conversations", "users", column: "host_id"
   add_foreign_key "messages", "chatrooms"
   add_foreign_key "messages", "users"
   add_foreign_key "review_profiles", "users"
