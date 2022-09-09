@@ -17,7 +17,7 @@ data-chatroom-subscription-chatroom-id-value="<%= @chatroom.id %>">
       html: {data: {action: "ajax:success->chatroom-subscription#resetForm"}, class: "d-flex" } do |f| %>
       <%= f.input :content,
         label: false,
-        placeholder: "Message ##{@chatroom.concert.artist}",
+        placeholder: "Message ##{@chatroom.private? ? @chatroom.set_second_user(current_user).username : @chatroom.concert.artist}",
         wrapper_html: {class: "text-field flex-grow-1"}
       %>
       <%= f.button :button, class: "btn-orange-sm" do %>
