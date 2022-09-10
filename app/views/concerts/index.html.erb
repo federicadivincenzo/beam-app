@@ -1,14 +1,12 @@
-<div class="index-container">
-  <div class="">
-    <div class="container search-container">
-      <%= form_tag concerts_path, method: :get, class: "my-3 w-75 searchInputAndIcon w-100"  do %>
-        <%= text_field_tag :query,
-          params[:query],
-          class: "rounded-pill searchInput", placeholder: "Search for artist, venue, city"
-        %>
-        <%= button_tag do %>
-          <i class="fas fa-search"></i>
-        <% end %>
+<div class="index-container" data-controller="search-concerts">
+  <div class="container search-container" >
+    <%= form_tag concerts_path, method: :get, class: "my-3 w-75 searchInputAndIcon w-100", data: {search_concerts_target: "form"}  do %>
+      <%= text_field_tag :query,
+        params[:query],
+        class: "rounded-pill searchInput", placeholder: "Search for artist, venue, city", data: { search_concerts_target: 'input', action: 'keyup->search-concerts#update' }
+      %>
+      <%= button_tag do %>
+        <i class="fas fa-search"></i>
       <% end %>
     </div>
     <div class="container mb-3">
@@ -128,11 +126,14 @@
         </div>
       <% end %>
     </div>
-
+    <% end %>
   </div>
+  <div class="container mb-3">
+    <h3>Browse categories</h3>
+  </div>
+  <%= render "tabs", concerts: @concerts %>
+  <%= render "list", concerts: @concerts %>
 </div>
-
-  </section>
 
 <div class="footer-map">
   <div class="footer_content">

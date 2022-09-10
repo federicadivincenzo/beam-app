@@ -2,12 +2,12 @@ class ConcertsController < ApplicationController
   before_action :set_concert, only: :show
 
   def index
-    @fav_concerts = Concert.all.sample(4)
     @concerts = if params[:query].present?
                   Concert.search_by_artist_address_venue_genre_description(params[:query])
                 else
                   Concert.all.order(date: :asc)
                 end
+
     @markers = @concerts.geocoded.map do |concert|
       {
         lat: concert.latitude,
@@ -31,7 +31,6 @@ class ConcertsController < ApplicationController
       info_window: render_to_string(partial: 'info_window', locals: { concert: concert }),
       image_url: helpers.asset_url('logo.png')
       # location: 'show'
-
     }
     end
   end
@@ -44,6 +43,7 @@ class ConcertsController < ApplicationController
       image_url: helpers.asset_url('logo.png'),
       location: 'show'
     }]
+
     @usersconcert = if UsersConcert.exists?(concert_id: params[:id])
                       UsersConcert.where(concert_id: params[:id])
                     else

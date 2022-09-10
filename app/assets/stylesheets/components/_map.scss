@@ -5,6 +5,8 @@
 .mapboxgl-popup-content {
   text-align: center;
   font-family: "Open Sans", sans-serif;
+  width: 100%;
+  height: 100%;
 }
 .mapboxgl-popup{
   transform: unset !important;
@@ -13,4 +15,11 @@
   left: 20px;
   right: 20px;
   top: unset !important;
+  // background-color: black;
+}
+.map_card_link{
+  text-decoration: none;
+}
+.map_card_details{
+  color: white
 }

@@ -1,30 +1,28 @@
-<div class="show-container">
-  <div class="card-category" style="background-image: url(<%= @concert.photo %>)">
+<div class="show-container" data-controller="change-grid">
+  <div class="show-container">
+    <div class="card-category" style="background-image: url(<%= @concert.photo %>)">
 
-  </div>
-
-
-
-<!-- Modal -->
-  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="card-grid_column card-grid-modal user-card-container">
-          <%  @attendees.each do |attendee| %>
-            <div class="attendee-card">
-              <div class="card-content">
-                <% photo = attendee.user.photo ? attendee.user.photo : "https://thumbs.dreamstime.com/b/default-avatar-profile-trendy-style-social-media-user-icon-187599373.jpg" %>
-                <%= image_tag photo, class: 'avatar-sm'  %>
-                <%= link_to user_path(attendee.user.id) do %>
-                  <p class="card-fullname"><%= attendee.user.username %></p>
-                <% end %>
+    </div>
+  <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="card-grid_column card-grid-modal user-card-container" data-change-grid-target="grid" >
+            <%  @attendees.each do |attendee| %>
+              <div class="attendee-card">
+                <div class="card-content">
+                  <% photo = attendee.user.photo ? attendee.user.photo : "https://thumbs.dreamstime.com/b/default-avatar-profile-trendy-style-social-media-user-icon-187599373.jpg" %>
+                  <%= image_tag photo, class: 'avatar-sm'  %>
+                  <%= link_to user_path(attendee.user.id) do %>
+                    <p class="card-fullname"><%= attendee.user.username %></p>
+                  <% end %>
+                </div>
               </div>
-            </div>
-          <% end %>
+            <% end %>
+          </div>
         </div>
       </div>
     </div>
-  </div>
 
     <div class="concert-details">
       <div class="concert-details-title">
@@ -36,21 +34,22 @@
           <li><p><i class="fa-solid fa-calendar"></i> <%= @concert.date %></p></li>
           <li><p><i class="fa-solid fa-location-crosshairs"></i> <%= @concert.venue %></p></li>
         </ul>
-      </div>
-      <div class="concert-details-bio">
-        <h3>Description</h3>
-        <p><%= @concert.description %> "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."</p>
-      </div>
-    </div>
-    <div class="container-map">
-      <%# <img src="https://www.google.com/maps/d/thumbnail?mid=17x3faiz9oX3SJDpBJPjO-zu6jUQ" alt=""> %>
-      <div style="width: 100%; height: 200px;"
-          data-controller="mapbox"
-          data-mapbox-markers-value="<%= @markers.to_json %>"
-          data-mapbox-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
-      </div>
-    </div>
+        </div>
+        <div class="concert-details-bio">
+          <h3>Description</h3>
+          <p><%= @concert.description %> "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."</p>
+        </div>
 
+      </div>
+      <div class="container-map">
+        <%# <img src="https://www.google.com/maps/d/thumbnail?mid=17x3faiz9oX3SJDpBJPjO-zu6jUQ" alt=""> %>
+        <div style="width: 100%; height: 200px;"
+            data-controller="mapbox"
+            data-mapbox-markers-value="<%= @markers.to_json %>"
+            data-mapbox-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+        </div>
+      </div>
+    </div>
   </div>
     <div class="footer-map">
       <div class="footer_content">
@@ -65,6 +64,7 @@
           <button class="btn-orange "><%= button_to 'Join now', concert_users_concerts_path(@concert), class:"joinBtn" %></button>
         <% end %>
       </div>
+
   </div>
 </div>
 
