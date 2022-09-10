@@ -21,10 +21,10 @@ Chatroom.destroy_all
 puts 'Database cleaned ✅'
 puts
 puts 'Creating users...'
-for i in 1..10 do
+for a in 1..10 do
   response = Net::HTTP.get_response random_url
   user = User.create!(username: Faker::Internet.username(specifier: 5..10),
-                      email: "fake#{i}@gmail.com",
+                      email: "fake#{a}@gmail.com",
                       password: 'password',
                       photo: response.to_hash['location'].first)
   ReviewProfile.create!(user_id: user.id)
@@ -47,7 +47,7 @@ puts 'Creating concerts...'
 #   puts "Concert with #{concert.artist} at #{concert.venue} created ✅"
 # end
 BANDSINTOWN_API = 'af3c26c861035dac4dbd142595c34c18'
-artist = 'Bad%20Bunny'
+artist = 'Bad Bunny'
 artists = {   'Drake': 'Hip Hop',
   'Bad Bunny': 'Reggaeton',
   'Ed Sheeran': 'Pop',
@@ -99,23 +99,31 @@ artists = {   'Drake': 'Hip Hop',
   'Linkin Park': 'Rock',
   'Twenty One Pilots': 'Pop' }
 
-  url = "https://rest.bandsintown.com/artists/#{artist}/events?app_id=#{BANDSINTOWN_API}"
+url = "https://rest.bandsintown.com/artists/#{artist.gsub(' ', '%20')}/events?app_id=#{BANDSINTOWN_API}"
 artist_serialized = URI.parse(url).open.read
-parsed_artist = JSON.parse(artist_serialized)
+parsed_artists = JSON.parse(artist_serialized)
 
-artist_concert = Concert.new(
-  artist: parsed_artist[0]['artist']['name'],
-  date: parsed_artist[0]['starts_at'],
-  address: parsed_artist[0]['venue']['location'],
-  venue: parsed_artist[0]['venue']['name'],
-  description: parsed_artist[0]['description'],
-  genre: artists[artist],
-  photo: parsed_artist[0]['artist']['image_url'],
-  ticket: parsed_artist[0]['offers'][0]['url']
-)
-artist_concert.save!
-puts "Concert with #{artist_concert.artist} at #{artist_concert.venue} created ✅"
-
+# resp = RestClient::Request.execute(method: :get,
+#         url: "https://rest.bandsintown.com/artists/#{artist.gsub(' ', '%20')}/events?app_id=#{BANDSINTOWN_API}",
+#         hearders:{
+#           'Content-Type': 'application/json'
+#         })
+# parsed_artists = JSON.parse(resp.body)
+artist_name = parsed_artists[0]['artist']['name']
+artist_photo = parsed_artists[0]['artist']['image_url']
+parsed_artists.each do |event|
+  parsed_concert = Concert.create!(
+    artist: artist_name,
+    date: event['starts_at'],
+    address: event['venue']['location'],
+    venue: event['venue']['name'],
+    description: event['description'],
+    genre: artists[artist],
+    photo: artist_photo,
+    # ticket: event['offers'][0]['url']
+  )
+  puts "Concert with #{parsed_concert.artist} at #{parsed_concert.venue} created ✅"
+end
 
 concert_1 = Concert.new(
   artist: 'Embrace',

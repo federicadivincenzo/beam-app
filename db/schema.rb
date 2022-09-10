@@ -39,7 +39,7 @@ ActiveRecord::Schema.define(version: 2022_09_10_085719) do
     t.float "latitude"
     t.float "longitude"
     t.string "photo"
-    t.string "ticket"
+    t.string "ticket", default: "No tickets available."
   end
 
   create_table "conversations", force: :cascade do |t|
