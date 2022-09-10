@@ -29,7 +29,21 @@ $br-radius: 2em;
     word-spacing: 100vw;
     font-weight: bold;
   }
+}
 
+.card_column {
+  display: grid;
+  grid-template-columns: 1fr;
+  align-items: center;
+  gap: .8em;
+  .card__heading{
+    color: rgba(255,255,255,0.9) !important;
+    font-size: 1.4rem;
+    text-shadow: 2px 2px 20px rgba(0,0,0,0.2);
+    line-height: 1;
+    word-spacing: 100vw;
+    font-weight: bold;
+  }
 }
 
 .card {

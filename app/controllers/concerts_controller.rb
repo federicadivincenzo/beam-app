@@ -31,7 +31,6 @@ class ConcertsController < ApplicationController
       info_window: render_to_string(partial: "info_window", locals: { concert: concert }),
       image_url: helpers.asset_url("logo.png"),
       # location: "show"
-
     }
     end
   end
@@ -44,6 +43,7 @@ class ConcertsController < ApplicationController
       image_url: helpers.asset_url("logo.png"),
       location: "show"
     } ]
+
     @usersconcert = if UsersConcert.exists?(concert_id: params[:id])
                       UsersConcert.find_by(concert_id: params[:id])
                     else
