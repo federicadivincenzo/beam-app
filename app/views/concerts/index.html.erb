@@ -119,7 +119,7 @@
             <%= link_to 'Discover', concert_path(concert), class: 'btn-orange mb-4' %>
             <% if current_user == nil %>
               <button class="btn-orange "><%= button_to 'Join now', new_user_session_path, class:"joinBtn" %></button>
-            <% elsif concert.set_user_concert(concert).attending?(concert, current_user) %>
+            <% elsif UsersConcert.where("user_id = ?, concert_id = ?", current_user.id, concert.id)  %>
               <button class="btn-orange"><%= link_to 'CHAT', chatroom_path(concert.chatroom) %></button>
             <% else %>
               <button class="btn-orange "><%= button_to 'Join now', concert_users_concerts_path(concert), class:"joinBtn" %></button>

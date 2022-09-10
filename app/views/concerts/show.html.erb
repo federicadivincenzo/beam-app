@@ -35,7 +35,6 @@
         <ul class="list-no-style">
           <li><p><i class="fa-solid fa-calendar"></i> <%= @concert.date %></p></li>
           <li><p><i class="fa-solid fa-location-crosshairs"></i> <%= @concert.venue %></p></li>
-          <li><p><i class="fa-solid fa-location-dot"></i> <%= @concert.address %></p></li>
         </ul>
       </div>
       <div class="concert-details-bio">
@@ -60,7 +59,7 @@
         </button>
         <% if current_user == nil %>
           <button class="btn-orange "><%= button_to 'Join now', new_user_session_path, class:"joinBtn" %></button>
-        <% elsif @usersconcert.attending?(@concert, current_user) %>
+        <% elsif UsersConcert.where("user_id = ?, concert_id = ?", current_user.id, @concert.id) %>
           <button class="btn-orange"><%= link_to 'CHAT', chatroom_path(@concert.chatroom) %></button>
         <% else %>
           <button class="btn-orange "><%= button_to 'Join now', concert_users_concerts_path(@concert), class:"joinBtn" %></button>
