@@ -122,7 +122,7 @@
             <% elsif concert.set_user_concert(concert).attending?(concert, current_user) %>
               <button class="btn-orange"><%= link_to 'CHAT', chatroom_path(concert.chatroom) %></button>
             <% else %>
-              <button class="btn-orange "><%= button_to 'Join now', concert_users_concerts_path(concert), class:"joinBtn" %></button>
+              <button class="btn-orange "><%= button_to 'Join now', concert_users_concerts_path(concert), class:"btn-orange" %></button>
             <% end %>
               </div>
         </div>
