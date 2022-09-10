@@ -2,12 +2,12 @@ class ConcertsController < ApplicationController
   before_action :set_concert, only: :show
 
   def index
-    @fav_concerts = Concert.all.sample(4)
     @concerts = if params[:query].present?
                   Concert.search_by_artist_address_venue_genre_description(params[:query])
                 else
                   Concert.all.order(created_at: :asc)
                 end
+
     @markers = @concerts.geocoded.map do |concert|
       {
         lat: concert.latitude,

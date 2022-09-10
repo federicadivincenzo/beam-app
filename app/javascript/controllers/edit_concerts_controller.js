@@ -5,7 +5,5 @@ export default class extends Controller {
 
   displayForm() {
     this.formTarget.classList.toggle("d-none");
-    console.log(this.formTarget);
-    console.log('hey')
   }
 }
