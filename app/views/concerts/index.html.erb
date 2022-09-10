@@ -1,138 +1,24 @@
-<div class="index-container">
-  <div class="">
-    <div class="container search-container">
-      <%= form_tag concerts_path, method: :get, class: "my-3 w-75 searchInputAndIcon w-100"  do %>
-        <%= text_field_tag :query,
-          params[:query],
-          class: "rounded-pill searchInput", placeholder: "Search for artist, venue, city"
-        %>
-        <%= button_tag do %>
-          <i class="fas fa-search"></i>
-        <% end %>
+<div class="index-container" data-controller="search-concerts">
+  <div class="container search-container" >
+    <%= form_tag concerts_path, method: :get, class: "my-3 w-75 searchInputAndIcon w-100", data: {search_concerts_target: "form"}  do %>
+      <%= text_field_tag :query,
+        params[:query],
+        class: "rounded-pill searchInput", placeholder: "Search for artist, venue, city", data: { search_concerts_target: 'input', action: 'keyup->search-concerts#update' }
+      %>
+      <%= button_tag do %>
+        <i class="fas fa-search"></i>
       <% end %>
-    </div>
-    <div class="container mb-3">
-      <h3>Browse categories</h3>
-    </div>
-    <div class="tab-container mb-3">
-          <nav class="categories_tabs stroke">
-            <div class='tab'>
-              <%= form_tag concerts_path, method: :get, class: "my-3 w-75 searchInputAndIcon w-100"  do %>
-                <%= hidden_field_tag :query,
-                  params[:query] = 'Rock'
-                %>
-                <%= button_tag do %>
-                  <i class="fa-solid fa-guitar icon_category"></i>
-                  <p class="tab-text">Rock</p>
-                <% end %>
-              <% end %>
-            </div>
-            <div class='tab'>
-              <%= form_tag concerts_path, method: :get, class: "my-3 w-75 searchInputAndIcon w-100"  do %>
-                <%= hidden_field_tag :query,
-                  params[:query] = 'Jazz'
-                %>
-                <%= button_tag do %>
-                  <i class="fa-solid fa-compact-disc icon_category"></i>
-                  <p class="tab-text">Jazz</p>
-                <% end %>
-              <% end %>
-            </div>
-            <div class='tab'>
-              <%= form_tag concerts_path, method: :get, class: "my-3 w-75 searchInputAndIcon w-100"  do %>
-                <%= hidden_field_tag :query,
-                  params[:query] = 'Rap'
-                %>
-                <%= button_tag do %>
-                  <i class="fa-solid fa-microphone-lines icon_category"></i>
-                  <p class="tab-text">Rap</p>
-                <% end %>
-              <% end %>
-            </div>
-            <div class='tab'>
-              <%= form_tag concerts_path, method: :get, class: "my-3 w-75 searchInputAndIcon w-100"  do %>
-                <%= hidden_field_tag :query,
-                  params[:query] = 'ragge'
-                %>
-                <%= button_tag do %>
-                  <i class="fa-solid fa-headphones-simple icon_category"></i>
-                  <p class="tab-text">Regge</p>
-                <% end %>
-              <% end %>
-            </div>
-            <div class='tab'>
-              <%= form_tag concerts_path, method: :get, class: "my-3 w-75 searchInputAndIcon w-100"  do %>
-                <%= hidden_field_tag :query,
-                  params[:query] = 'test'
-                %>
-                <%= button_tag do %>
-                  <i class="fa-solid fa-music icon_category"></i>
-                <p class="tab-text">DUNNO</p>
-                <% end %>
-              <% end %>
-            </div>
-            <div class='tab'>
-              <%= form_tag concerts_path, method: :get, class: "my-3 w-75 searchInputAndIcon w-100"  do %>
-                <%= hidden_field_tag :query,
-                  params[:query] = 'test'
-                %>
-                <%= button_tag do %>
-                  <i class="fa-solid fa-music icon_category"></i>
-                <p class="tab-text">DUNNO</p>
-                <% end %>
-              <% end %>
-            </div>
-            <div class='tab'>
-              <%= form_tag concerts_path, method: :get, class: "my-3 w-75 searchInputAndIcon w-100"  do %>
-                <%= hidden_field_tag :query,
-                  params[:query] = 'test'
-                %>
-                <%= button_tag do %>
-                  <i class="fa-solid fa-music icon_category"></i>
-                <p class="tab-text">DUNNO</p>
-                <% end %>
-              <% end %>
-            </div>
-            <div class='tab'>
-              <%= form_tag concerts_path, method: :get, class: "my-3 w-75 searchInputAndIcon w-100"  do %>
-                <%= hidden_field_tag :query,
-                  params[:query] = 'all'
-                %>
-                <%= button_tag do %>
-                <p class="tab-text">See all</p>
-                <% end %>
-              <% end %>
-            </div>
-        </nav>
-    </div>
-  <section class="container">
-
-    <div class="card-grid_column card-grid" >
-      <% @concerts.each do |concert| %>
-        <div class="card card__background" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(<%= concert.photo %>)" data-controller="edit-concerts" data-action="click->edit-concerts#displayForm">
-          <div class="card__content">
-            <p class="card__category"><%= concert.date %></p>
-            <h3 class="card__heading"><%= link_to concert.artist, concert_path(concert) %></h3>
-            <p class="card__category"><%= concert.address %></p>
-          </div>
-          <div class="form-group-container d-none d-flex flex-column justify-content-center align-items-center" data-edit-concerts-target="form">
-            <%= link_to 'Discover', concert_path(concert), class: 'btn-orange mb-4' %>
-            <% if current_user == nil %>
-              <button class="btn-orange "><%= button_to 'Join now', new_user_session_path, class:"joinBtn" %></button>
-            <% elsif concert.set_user_concert(concert).attending?(concert, current_user) %>
-              <button class="btn-orange"><%= link_to 'CHAT', chatroom_path(concert.chatroom) %></button>
-            <% else %>
-              <button class="btn-orange "><%= button_to 'Join now', concert_users_concerts_path(concert), class:"joinBtn" %></button>
-            <% end %>
-              </div>
-        </div>
-      <% end %>
-    </div>
-
+    <% end %>
   </div>
+  <div class="container mb-3">
+    <h3>Browse categories</h3>
+  </div>
+  <%= render "tabs", concerts: @concerts %>
+
+  <%= render "list", concerts: @concerts %>
+
 </div>
 
-  </section>
 
 <div class="footer-map">
   <div class="footer_content">
