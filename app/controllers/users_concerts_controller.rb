@@ -1,5 +1,5 @@
 class UsersConcertsController < ApplicationController
-  before_action :set_concert, only: %i[attending? create]
+  before_action :set_concert, only: %i[create]
   before_action :set_user, only: %i[create]
 
   def create
