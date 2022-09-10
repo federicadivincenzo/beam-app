@@ -259,7 +259,7 @@ puts
 # puts 'Chatroom created ✅'
 # puts
 puts 'Creating messages...'
-Chatroom.all.each do |chatroom|
+Chatroom.sample(10).each do |chatroom|
   user = User.all.sample
   Message.create!(content: Faker::Company.bs, user_id: user.id, chatroom_id: chatroom.id)
   UsersConcert.create!(user_id: user.id, concert_id: chatroom.concert_id)
