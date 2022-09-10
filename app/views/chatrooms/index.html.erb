@@ -8,7 +8,7 @@
         </div>
         <div class="chat-content">
           <div class="chat-content-tile">
-            <span><%= chatroom.private? ? "To: #{chatroom.set_second_user(current_user).username}" : "Group: #{chatroom.concert.artist}" %> </span>
+            <span><%= chatroom.private? ? "To: #{chatroom.set_second_user(current_user).username}" : "Group: #{chatroom.concert.artist} on #{chatroom.concert.date}" %> </span>
           </div>
           <div class="chat-content-message">
             <span><%= chatroom.messages.last.user.username %>: </span><%= chatroom.messages.last.content %> <span><small><%= chatroom.messages.last.created_at.strftime(" · %I:%M%p")%></small></span>
