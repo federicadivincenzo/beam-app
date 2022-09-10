@@ -8,8 +8,10 @@
 
 require 'faker'
 require 'uri'
+require 'open-uri'
+require 'json'
 
-random_url = URI.parse("https://source.unsplash.com/150x150/?portrait")
+random_url = URI.parse('https://source.unsplash.com/150x150/?portrait')
 puts 'Cleaning database...'
 Review.destroy_all
 Concert.destroy_all
@@ -44,6 +46,76 @@ puts 'Creating concerts...'
 #   concert.save!
 #   puts "Concert with #{concert.artist} at #{concert.venue} created ✅"
 # end
+BANDSINTOWN_API = 'af3c26c861035dac4dbd142595c34c18'
+artist = 'Bad%20Bunny'
+artists = {   'Drake': 'Hip Hop',
+  'Bad Bunny': 'Reggaeton',
+  'Ed Sheeran': 'Pop',
+  'The Weeknd': 'Pop',
+  'Justin Bieber': 'Pop',
+  'Taylor Swift': 'Pop',
+  'Ariana Grande': 'Pop',
+  'Eminem': 'Hip Hop',
+  'Post Malone': 'Hip Hop',
+  'BTS': 'K-Pop',
+  'J Balvin': 'Reggaeton',
+  'Kanye West': 'Hip Hop',
+  'Billie Eilish': 'Pop',
+  'Juice WRLD': 'Hip Hop',
+  'Dua Lipa': 'Pop',
+  'Coldplay': 'Pop',
+  'Imagine Dragons': 'Rock',
+  'XXXTENTACION': 'Hip Hop',
+  'Ozuna': 'Reggaeton',
+  'Khalid': 'Pop',
+  'Rihanna': 'Pop',
+  'Travis Scott': 'Hip Hop',
+  'Maroon 5': 'Pop',
+  'Shawn Mendes': 'Pop',
+  'David Guetta': 'Pop',
+  'Bruno Mars': 'R&B',
+  'Daddy Yankee': 'Reggaeton',
+  'Calvin Harris': 'Pop',
+  'Kendrick Lamar': 'Hip Hop',
+  'Sam Smith': 'Pop',
+  'Queen': 'Rock',
+  'Beyoncé': 'Pop',
+  'Future': 'Hip Hop',
+  'One Direction': 'Pop',
+  'The Chainsmokers': 'Pop',
+  'Chris Brown': 'Hip Hop',
+  'Adele': 'Pop',
+  'Lady Gaga': 'Pop',
+  'J. Cole': 'Hip Hop',
+  'Nicki Minaj': 'Hip Hop',
+  'Anuel AA': 'Reggaeton',
+  'Halsey': 'Pop',
+  'The Beatles': 'Rock',
+  'Selena Gomez': 'Pop',
+  'Maluma': 'Reggaeton',
+  'Sia': 'Pop',
+  'Harry Styles': 'Pop',
+  'Marshmello': 'Pop',
+  'Linkin Park': 'Rock',
+  'Twenty One Pilots': 'Pop' }
+
+  url = "https://rest.bandsintown.com/artists/#{artist}/events?app_id=#{BANDSINTOWN_API}"
+artist_serialized = URI.parse(url).open.read
+parsed_artist = JSON.parse(artist_serialized)
+
+artist_concert = Concert.new(
+  artist: parsed_artist[0]['artist']['name'],
+  date: parsed_artist[0]['starts_at'],
+  address: parsed_artist[0]['venue']['location'],
+  venue: parsed_artist[0]['venue']['name'],
+  description: parsed_artist[0]['description'],
+  genre: artists[artist],
+  photo: parsed_artist[0]['artist']['image_url'],
+  ticket: parsed_artist[0]['offers'][0]['url']
+)
+artist_concert.save!
+puts "Concert with #{artist_concert.artist} at #{artist_concert.venue} created ✅"
+
 
 concert_1 = Concert.new(
   artist: 'Embrace',
