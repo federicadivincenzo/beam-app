@@ -46,7 +46,7 @@
               <div class='tab'>
                 <%= form_tag concerts_path, method: :get, class: "my-3 w-75 d-flex searchInputAndIcon w-100"  do %>
                   <%= hidden_field_tag :query,
-                    params[:query] = 'Pop'
+                    params[:query] = 'K-Pop'
                   %>
                   <%= button_tag class: 'button-39 d-flex align-items-center justify-contents-center' do %>
                     <p>🕺🏻 K-Pop</p>
@@ -56,7 +56,7 @@
               <div class='tab'>
                 <%= form_tag concerts_path, method: :get, class: "my-3 w-75 d-flex searchInputAndIcon w-100"  do %>
                   <%= hidden_field_tag :query,
-                    params[:query] = 'K-Pop'
+                    params[:query] = 'R&B'
                   %>
                   <%= button_tag class: 'button-39 d-flex align-items-center justify-contents-center' do %>
                     <p>🥁 R&B</p>
@@ -66,7 +66,7 @@
               <div class='tab'>
                 <%= form_tag concerts_path, method: :get, class: "my-3 w-75 d-flex searchInputAndIcon w-100"  do %>
                   <%= hidden_field_tag :query,
-                    params[:query] = 'Classic'
+                    params[:query] = 'Reggaeton'
                   %>
                   <%= button_tag class: 'button-39 d-flex align-items-center justify-contents-center' do %>
                     <p>🪩 Reggaeton</p>
@@ -104,7 +104,7 @@
             <% else %>
               <button class="btn-orange "><%= button_to 'Join now', concert_users_concerts_path(concert), class:"joinBtn" %></button>
             <% end %>
-              </div>
+          </div>
         </div>
       <% end %>
     </div>
@@ -113,6 +113,7 @@
   <%# <%= render "tabs", concerts: @concerts %>
   <%# <%= render "list", concerts: @concerts %>
 </div>
+
 
 <div class="footer-btn btn-center">
   <button  class="btn-orange">

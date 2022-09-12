@@ -26,7 +26,9 @@ for a in 1..10 do
   user = User.create!(username: Faker::Internet.username(specifier: 5..10),
                       email: "fake#{a}@gmail.com",
                       password: 'password',
-                      photo: response.to_hash['location'])
+                      photo: response.to_hash['location'],
+                      bio: "#{Faker::TvShows::Friends.quote} #{Faker::TvShows::Friends.quote}"
+                    )
   ReviewProfile.create!(user_id: user.id)
 end
 puts 'Users created ✅'
@@ -99,7 +101,7 @@ artists.each do |artist|
       longitude: event['venue']['longitude'],
       venue: event['venue']['name'],
       description: event['description'],
-      genre: artists[artist_name],
+      genre: artists[:"#{artist_name}"],
       photo: artist_photo,
       ticket: event['offers'] == [] ? 'No ticket available' : event['offers'][0]['url']
     )
@@ -241,13 +243,13 @@ puts '===================='
 puts 'Concerts created ✅'
 puts
 puts 'Creating review...'
-10.times do
+15.times do
   user = User.all.sample
   Review.create!(
     rating: rand(1..5),
     content: Faker::Lorem.paragraph(sentence_count: 3),
     user_id: user.id,
-    review_profile_id: User.all.where("id != ?", user.id).sample.id
+    review_profile_id: User.all.where('id != ?', user.id).sample.id
   )
   puts 'Review created ✅'
 end
@@ -259,7 +261,7 @@ puts
 # puts 'Chatroom created ✅'
 # puts
 puts 'Creating messages...'
-Chatroom.take(10).each do |chatroom|
+Chatroom.take(20).each do |chatroom|
   user = User.all.sample
   Message.create!(content: Faker::Company.bs, user_id: user.id, chatroom_id: chatroom.id)
   UsersConcert.create!(user_id: user.id, concert_id: chatroom.concert_id)
