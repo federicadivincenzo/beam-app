@@ -38,4 +38,19 @@
   .text-field{
     margin: 0 !important;
   }
+
+}
+
+.footer-btn {
+  z-index: 999;
+  position: fixed;
+  bottom: 1em;
+  right: 0;
+  top: 90vh;
+  background-color: transparent;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
 }
