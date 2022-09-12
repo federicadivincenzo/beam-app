@@ -67,14 +67,23 @@ $br-radius: 2em;
   height: 18em;
   position: relative;
   border-radius: $br-radius;
+  background-size: cover;
+  background-position: center;
+  box-shadow: rgba(0, 0, 0, 0.05) 0px 1px 2px 0px;
   a {
     text-decoration: none;
   }
   flex: 0 0 auto;
-
 }
 
-//do not remove if conflict !!!!//
+@media only screen and (min-width: 768px) {
+  /* For mobile phones: */
+  .card {
+    width: 30%;
+    height: 20em;
+  }
+}
+
 .card__background{
   background-size: cover;
   background-position: center;
@@ -92,6 +101,7 @@ $br-radius: 2em;
     transform 200ms linear;
     border-radius: $br-radius;
 }
+
 
 .card__content{
   left: 0;
@@ -159,3 +169,18 @@ $br-radius: 2em;
 //   gap: .8em;
 //   font-weight: bold;
 // }
+
+
+.card-value {
+  padding: 1em 1.3em;
+  text-align: center;
+  img {
+    width: fit-content;
+    margin-bottom: 1.8em;
+    width: 65%;
+    height: 10em;
+  }
+  h3 {
+    font-weight: bold;
+  }
+}
