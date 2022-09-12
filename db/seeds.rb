@@ -22,11 +22,11 @@ puts 'Database cleaned ✅'
 puts
 puts 'Creating users...'
 for a in 1..10 do
-  response = Net::HTTP.get_response random_url
+  response = Net::HTTP.get_response(random_url)
   user = User.create!(username: Faker::Internet.username(specifier: 5..10),
                       email: "fake#{a}@gmail.com",
                       password: 'password',
-                      photo: response.to_hash['location'].first)
+                      photo: response.to_hash['location'])
   ReviewProfile.create!(user_id: user.id)
 end
 puts 'Users created ✅'
@@ -259,7 +259,7 @@ puts
 # puts 'Chatroom created ✅'
 # puts
 puts 'Creating messages...'
-Chatroom.sample(10).each do |chatroom|
+Chatroom.take(10).each do |chatroom|
   user = User.all.sample
   Message.create!(content: Faker::Company.bs, user_id: user.id, chatroom_id: chatroom.id)
   UsersConcert.create!(user_id: user.id, concert_id: chatroom.concert_id)
