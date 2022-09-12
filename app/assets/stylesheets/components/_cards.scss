@@ -31,6 +31,22 @@ $br-radius: 2em;
   }
 }
 
+@media only screen and (min-width: 768px) {
+  /* For mobile phones: */
+  .card-grid_column {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    .card__heading{
+      color: rgba(255,255,255,0.9) !important;
+      font-size: 1.8rem;
+      text-shadow: 2px 2px 20px rgba(0,0,0,0.2);
+      line-height: 1;
+      word-spacing: 100vw;
+      font-weight: bold;
+    }
+  }
+}
+
 .card_column {
   display: grid;
   grid-template-columns: 1fr;
@@ -58,7 +74,7 @@ $br-radius: 2em;
 
 }
 
-
+//do not remove if conflict !!!!//
 .card__background{
   background-size: cover;
   background-position: center;
@@ -79,7 +95,7 @@ $br-radius: 2em;
 
 .card__content{
   left: 0;
-  padding: 1em;
+  padding: 1.3em;
   position: absolute;
   bottom: 0;
   color: white;
