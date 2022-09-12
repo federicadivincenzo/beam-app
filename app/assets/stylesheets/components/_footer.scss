@@ -39,3 +39,16 @@
     margin: 0 !important;
   }
 }
+
+.footer-btn {
+  -webkit-box-pack: center !important;
+  position: relative !important;
+  display: flex !important;
+  visibility: visible !important;
+  justify-content: center !important;
+  z-index: 8 !important;
+  white-space: nowrap !important;
+  transition: -ms-transform 0.2s ease-in-out 0s, -webkit-transform 0.2s ease-in-out 0s, transform 0.2s ease-in-out 0s, opacity 0.15s linear 0s, visibility 0s ease 0s !important;
+  margin-bottom: 24px !important;
+  opacity: 1 !important;
+}

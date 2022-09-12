@@ -1,6 +1,6 @@
 <div class="index-container" data-controller="search-concerts">
   <div class="container search-container w-60" >
-    <%= form_tag concerts_path, method: :get, class: "my-3 w-75 searchInputAndIcon w-100", data: {search_concerts_target: "form"}  do %>
+    <%= form_tag concerts_path, method: :get, class: "my-3 w-75  searchInputAndIcon w-100", data: {search_concerts_target: "form"}  do %>
       <%= text_field_tag :query,
         params[:query],
         class: "rounded-pill searchInput", placeholder: "Search for artist, venue, city", data: { search_concerts_target: 'input', action: 'keyup->search-concerts#update' }
@@ -114,9 +114,8 @@
   <%# <%= render "list", concerts: @concerts %>
 </div>
 
-<div class="footer-map">
-  <div class="footer_content">
-    <p>SOME TEXT</p>
-    <button class="btn-orange">MAP</button>
-  </div>
+<div class="footer-btn fixed-button">
+  <button  class="btn-orange">
+    <%= link_to "MAP", map_path %>
+  </button>
 </div>

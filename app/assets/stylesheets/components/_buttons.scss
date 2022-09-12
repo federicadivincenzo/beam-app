@@ -39,6 +39,7 @@
   user-select: none;
   -webkit-user-select: none;
   touch-action: manipulation;
+  min-width: 5em;
 }
 
 .btn-orange:hover {
@@ -87,6 +88,12 @@
   }
 
   .button-39:focus {
+    outline: 2px solid transparent;
+    outline-offset: 2px;
+    box-shadow: rgba(236, 146, 21, 0.684) 0px 1px 4px;
+  }
+
+  .button-39:active {
     outline: 2px solid transparent;
     outline-offset: 2px;
     box-shadow: rgba(236, 146, 21, 0.684) 0px 1px 4px;
