@@ -72,3 +72,4 @@ gem 'pg_search', '~> 2.3.0'
 gem 'dotenv-rails', groups: [:development, :test]
 gem 'stimulus-rails'
 gem 'mapbox-gl-rails'
+gem 'anime-rails', '~> 3.2', '>= 3.2.1.2'

@@ -8,30 +8,33 @@
   </div>
 </div> %>
 <div class="container margin-bottom">
-  <div class="d-flex justify-content-between flex-column align-items-center">
-    <h1 class="my-3 w-75"> <strong>Find your new friends.</strong></h1>
-    <%# <div class="searchInputAndIcon"> %>
-    <%# </div> %>
+  <div class="header-container d-flex justify-content-center align-items-center">
+    <div class="header d-flex flex-column justify-content-center">
+      <div class="header-text d-flex justify-content-between flex-column align-items-center text-center mb-4">
+        <h1 class="header-title mb-3"> <strong>Beam creates connections</strong></h1>
+        <p> Meet <span class="scale-animation orange-bold">new people</span>, <span class="scale-animation orange-bold">chat</span> and go to <span class="scale-animation orange-bold">concerts</span>, together.</p>
+      </div>
+      <div class="search-container text-center">
+        <%= form_tag concerts_path, method: :get, class: "my-3 w-75 searchInputAndIcon w-100"  do %>
+          <%= text_field_tag :query,
+            params[:query],
+            class: "rounded-pill searchInput", placeholder: "Search for artist, venue, city"
+          %>
+          <%= button_tag do %>
+            <i class="fas fa-search"></i>
+          <% end %>
+        <% end %>
+        <%= link_to concerts_path, class: 'orange-link', id: 'link-orange' do %>
+           See all concerts
+        <% end %>
+      </div>
+    </div>
   </div>
-  <div class="search-container text-center">
-    <%= form_tag concerts_path, method: :get, class: "my-3 w-75 searchInputAndIcon w-100"  do %>
-      <%= text_field_tag :query,
-        params[:query],
-        class: "rounded-pill searchInput", placeholder: "Search for artist, venue, city"
-      %>
-      <%= button_tag do %>
-        <i class="fas fa-search"></i>
-      <% end %>
-    <% end %>
-    <%= link_to concerts_path, class: 'orange-link', id: 'link-orange' do %>
-      <p>See all concerts</p>
-    <% end %>
-  </div>
-  <div class="body-container">
-    <h2 class="my-3 w-75"><strong>Trending now</strong></h2>
-    <div class="card-grid_scroll">
-        <% @concerts.each do |concert| %>
-          <div class="card" id="#card__background" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(<%= concert.photo %>)">
+  <div class="body-container mb-5">
+    <h2 class="text-center mb-5"><strong>Trending now</strong></h2>
+    <div class="card-grid_scroll mb-5">
+        <% @concerts.sample(5).each do |concert| %>
+          <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(<%= concert.photo %>)">
             <div class="card__content">
               <p class="card__category"><%= concert.date %></p>
               <h3 class="card__heading"><%= link_to concert.artist, concert_path(concert) %></h3>
@@ -39,13 +42,41 @@
             </div>
           </div>
         <% end %>
+      </div>
     </div>
-  </div>
-</div>
-<div class="footer-map">
-    <div class="footer_content">
-    <p></p>
-    <%= link_to "MAP", map_path , class:"btn-orange"%>
-    <%# <button class="btn-orange">MAP</button> %>
+    <div class="value-container w-30">
+    <h2 class="mb-4 text-center"><strong>How beam works</strong></h2>
+    <p class="mb-4 text-center p-3">Meet new people who share your interests through online and in-person events. It’s free to create an account.</p>
+    <div class="row my-5">
+      <div class="col-12 col-lg-4">
+        <div class="card-value">
+          <%= cl_image_tag("https://res.cloudinary.com/dqlkgz11b/image/upload/v1662992945/Beam-imgs/undraw_trip_re_f724_blljon.svg", crop: :fill) %>
+            <div class="card-text">
+              <h3>Join a group</h3>
+              <p>Do what you love, meet others who love it, find your community. The rest is history!</p>
+            </div>
+        </div>
+      </div>
+      <div class="col-12 col-lg-4">
+        <div class="card-value">
+          <%= cl_image_tag("https://res.cloudinary.com/dqlkgz11b/image/upload/v1662992943/Beam-imgs/undraw_team_up_re_84ok_rrwfs3.svg", crop: :fill) %>
+          <div class="card-text">
+          <h3>Chat with friends</h3>
+          <p>Do what you love, meet others who love it, find your community. The rest is history!</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-12 col-lg-4">
+        <div class="card-value">
+          <%= cl_image_tag("https://res.cloudinary.com/dqlkgz11b/image/upload/v1662992940/Beam-imgs/undraw_buddies_2ae5_n2exwp.svg", crop: :fill) %>
+          <div class="card-text">
+          <h3>Make new friends</h3>
+          <p>Do what you love, meet others who love it, find your community. The rest is history!</p>
+          </div>
+        </div>
+      </div>
     </div>
+    </div>
+
+
 </div>
