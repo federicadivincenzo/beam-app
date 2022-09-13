@@ -10,11 +10,10 @@ Rails.application.routes.draw do
   end
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   resources :concerts, only: %i[index show] do
-    resources :users_concerts, only: %i[create]
+    resources :users_concerts, only: %i[create destroy]
   end
   resources :chatrooms, only: %i[show index] do
     resources :messages, only: %i[create]
   end
-
 
 end

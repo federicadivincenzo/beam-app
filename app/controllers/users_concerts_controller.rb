@@ -6,12 +6,17 @@ class UsersConcertsController < ApplicationController
     @usersconcert = UsersConcert.new(users_concert_params)
     @usersconcert.concert = @concert
     @usersconcert.user = @user
-    @usersconcert.save
+    @usersconcert.save!
     redirect_to concert_path(@concert)
   end
 
   def count
     UsersConcert.where(concert_id: params[:id]).count
+  end
+
+  def destroy
+    redirect_to concert_path(params[:id])
+    UsersConcert.delete(params[:concert_id])
   end
 
   private

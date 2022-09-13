@@ -11,5 +11,6 @@ class ChatroomsController < ApplicationController
     @chatroom = Chatroom.find(params[:id])
     @message = Message.new
     @messages = Message.where(chatroom_id: params[:id])
+    @usersconcert = UsersConcert.find_by(concert_id: @chatroom.concert, user_id: current_user)
   end
 end

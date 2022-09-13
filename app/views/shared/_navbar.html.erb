@@ -1,6 +1,7 @@
 <nav class="container nav-absolute d-flex align-items-center justify-content-between">
   <%= link_to root_path do %>
-   <h1 id='logo'>BEAM.</h1>
+    <h1 id='logo'>BEAM.</h1>
+    <%= link_to 'Leave', concert_users_concert_path(@usersconcert), method: :delete, class: "dropdown-item" if user_signed_in? && current_page?(chatroom_path) %>
   <% end %>
   <div class="dropdown">
     <i class="fas fa-bars" data-bs-toggle="dropdown" aria-expanded="false"></i>
@@ -9,6 +10,7 @@
       <%# <%= image_tag "https://kitt.lewagon.com/placeholder/users/random", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
       <li><%= link_to "My Profile", user_path(current_user.id), class: "dropdown-item"%></li>
       <li><%= link_to 'My Chats', chatrooms_path, class: "dropdown-item" %></li>
+      <li><%= link_to 'Leave', concert_users_concert_path(@usersconcert), method: :delete, class: "dropdown-item" if user_signed_in? && current_page?(chatroom_path) %></li>
       <li><hr class="dropdown-divider"></li>
       <li><%= button_to "Log out", destroy_user_session_url, method: :delete, class: "dropdown-item"%></li>
     <% else %>
