@@ -31,7 +31,8 @@
           <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(<%= concert.photo %>)">
             <div class="card__content">
               <h3 class="card__heading"><%= link_to concert.artist, concert_path(concert) %></h3>
-              <p class="card__category">🗓 <%= concert.date.strftime("%d %b %Y") %></p>
+              <span class="card__category button-11">🗓 <%= concert.date.strftime("%d %b %Y") %></span>
+              <span class="card__category button-11">📍 <%= concert.venue %></span>
             </div>
           </div>
         <% end %>
