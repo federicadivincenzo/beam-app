@@ -9,7 +9,7 @@ import * as ActiveStorage from "@rails/activestorage"
 import "channels"
 import "bootstrap"
 import anime from 'animejs/lib/anime.es.js';
-
+import ScrollReveal from 'scrollreveal'
 
 Rails.start()
 Turbolinks.start()
@@ -43,3 +43,5 @@ var animateScalingImage = anime({
   duration: 3000,
   delay: (el, i) => 300 + 30 * i
 });
+
+ScrollReveal().reveal('.card-animate', { delay: 500 });

@@ -15,6 +15,7 @@
     "jquery": "^3.6.0",
     "mapbox-gl": "^2.10.0",
     "popper.js": "^1.16.1",
+    "scrollreveal": "^4.0.9",
     "stimulus": "^3.1.0",
     "turbolinks": "^5.2.0",
     "webpack": "^4.46.0",
