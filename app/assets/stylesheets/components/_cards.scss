@@ -109,13 +109,22 @@ $br-radius: 2em;
     border-radius: $br-radius;
 }
 
-
+.attendee-card {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 .card__content{
   left: 0;
   padding: 1.3em;
   position: absolute;
   bottom: 0;
   color: white;
+}
+
+#card-fullname {
+  color: orange;
+  margin: 0;
 }
 
 .card__category{
@@ -127,7 +136,6 @@ $br-radius: 2em;
 
 .card  {
   position: relative;
-
 }
 
 .form-group-container{
