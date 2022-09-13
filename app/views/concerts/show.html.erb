@@ -1,9 +1,3 @@
-<div class="show-container" data-controller="change-grid">
-  <div class="show-container">
-    <div class="card-category" style="background-image: url(<%= @concert.photo %>)">
-
-    </div>
-  <!-- Modal -->
     <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
       <div class="modal-dialog">
         <div class="modal-content">
@@ -24,6 +18,10 @@
       </div>
     </div>
 
+<div class="show-container" data-controller="change-grid">
+  <div class="show-container">
+    <div class="card-category" style="background-image: url(<%= @concert.photo %>)">
+    </div>
     <div class="concert-details">
       <div class="concert-details-title">
         <h1><%= @concert.artist %></h1>
@@ -31,13 +29,14 @@
       </div>
       <div class="concert-details-list">
         <ul class="list-no-style">
-          <li><p><i class="fa-solid fa-calendar"></i> <%= @concert.date %></p></li>
-          <li><p><i class="fa-solid fa-location-crosshairs"></i> <%= @concert.venue %></p></li>
+          <li><p>🗓 <%= @concert.date %></p></li>
+          <li><p>📍 <%= @concert.venue %></p></li>
+          <li><p>🎶 <%= @concert.genre %></p></li>
         </ul>
         </div>
         <div class="concert-details-bio">
           <h3>Description</h3>
-          <p><%= @concert.description %> "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."</p>
+          <p><%= @concert.description %> </p>
         </div>
 
       </div>
