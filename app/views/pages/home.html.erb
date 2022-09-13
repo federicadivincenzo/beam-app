@@ -49,7 +49,7 @@
     <div class="row my-5">
       <div class="col-12 col-lg-4">
         <div class="card-value">
-          <%= cl_image_tag("https://res.cloudinary.com/dqlkgz11b/image/upload/v1662992945/Beam-imgs/undraw_trip_re_f724_blljon.svg", crop: :fill) %>
+          <%= cl_image_tag("https://res.cloudinary.com/dqlkgz11b/image/upload/v1662992945/Beam-imgs/undraw_trip_re_f724_blljon.svg", class: 'card-value-img', crop: :fill) %>
             <div class="card-text">
               <h3>Join a group</h3>
               <p>Do what you love, meet others who love it, find your community. The rest is history!</p>
@@ -58,7 +58,7 @@
       </div>
       <div class="col-12 col-lg-4">
         <div class="card-value">
-          <%= cl_image_tag("https://res.cloudinary.com/dqlkgz11b/image/upload/v1662992943/Beam-imgs/undraw_team_up_re_84ok_rrwfs3.svg", crop: :fill) %>
+          <%= cl_image_tag("https://res.cloudinary.com/dqlkgz11b/image/upload/v1662992943/Beam-imgs/undraw_team_up_re_84ok_rrwfs3.svg", class: 'card-value-img', crop: :fill) %>
           <div class="card-text">
           <h3>Chat with friends</h3>
           <p>Do what you love, meet others who love it, find your community. The rest is history!</p>
@@ -67,7 +67,7 @@
       </div>
       <div class="col-12 col-lg-4">
         <div class="card-value">
-          <%= cl_image_tag("https://res.cloudinary.com/dqlkgz11b/image/upload/v1662992940/Beam-imgs/undraw_buddies_2ae5_n2exwp.svg", crop: :fill) %>
+          <%= cl_image_tag("https://res.cloudinary.com/dqlkgz11b/image/upload/v1662992940/Beam-imgs/undraw_buddies_2ae5_n2exwp.svg", class: 'card-value-img', crop: :fill) %>
           <div class="card-text">
           <h3>Make new friends</h3>
           <p>Do what you love, meet others who love it, find your community. The rest is history!</p>
@@ -76,6 +76,5 @@
       </div>
     </div>
     </div>
-
-
 </div>
+<%= render  "shared/footer" %>
