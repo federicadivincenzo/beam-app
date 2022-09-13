@@ -10,7 +10,7 @@
         <div><div><strong>5.0</strong></div><div>Rating</div></div>
         <div><strong><div><%= @concerts.count %></div></strong><div>concerts</div></div>
     </div>
-    <div class="text-center my-2 col-8 d-flex justify-content-between align-items-center btnFlex">
+    <div class="text-center my-2 col-10 d-flex justify-content-around align-items-center btnFlex">
       <% if current_user == @user %>
         <%# < class="btn-orange"><%= link_to "My Chats", chatrooms_path</button> %>
         <%= link_to "My Chats", chatrooms_path, class: 'btn-orange' %>
@@ -22,20 +22,19 @@
       <% end %>
     </div>
     <div class="d-flex justify-content-between flex-column mt-4 col-12">
-      <strong class="my-3">Upcoming concerts</strong>
-      <div class="card-grid_scroll">
+      <h3><strong class="my-3 mb-3 text-center">🚀 Upcoming concerts</strong></h3>
+      <div class="card-grid_scroll mt-3 mb-5">
         <% @concerts.each do |concert| %>
-          <div class="card" id="card__background" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(<%= concert.photo %>)">
+          <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(<%= concert.photo %>)">
             <div class="card__content">
-              <p class="card__category"><%= concert.date %></p>
               <h3 class="card__heading"><%= link_to concert.artist, concert_path(concert) %></h3>
-              <p class="card__category"><%= concert.address %></p>
+              <p class="card__category">🗓 <%= concert.date.strftime("%d %b %Y") %></p>
             </div>
           </div>
         <% end %>
       </div>
-      <strong class="my-3">Reviews</strong>
-      <%= "No reviews" if @reviews.count == 0 %>
+      <h3><strong class="my-3 mb-3 text-center">⭐️ Reviews </strong></h3>
+      <p classs="mt-2"><%= "No reviews" if @reviews.count == 0 %></p>
       <% @reviews.each do |review| %>
         <div class="py-2 reviewContent col-10 mb-2">
           <ul>
