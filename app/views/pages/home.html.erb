@@ -31,22 +31,21 @@
     </div>
   </div>
   <div class="body-container mb-5">
-    <h2 class="text-center mb-5"><strong>Trending now</strong></h2>
+    <h2 class="text-center mb-5"><strong>Trending now 🔥 </strong></h2>
     <div class="card-grid_scroll mb-5">
         <% @concerts.sample(5).each do |concert| %>
           <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(<%= concert.photo %>)">
             <div class="card__content">
-              <p class="card__category"><%= concert.date %></p>
               <h3 class="card__heading"><%= link_to concert.artist, concert_path(concert) %></h3>
-              <p class="card__category location"><%= concert.address %></p>
+              <p class="card__category">🗓 <%= concert.date.strftime("%d %b %Y") %></p>
             </div>
           </div>
         <% end %>
       </div>
     </div>
-    <div class="value-container w-30">
+    <div class="value-container mt-5 w-30">
     <h2 class="mb-4 text-center"><strong>How beam works</strong></h2>
-    <p class="mb-4 text-center p-3">Meet new people who share your interests through online and in-person events. It’s free to create an account.</p>
+    <p class="mb-4 text-center p-3 value-container_description">Meet new people who share your interests through online and in-person events. It’s free to create an account.</p>
     <div class="row my-5">
       <div class="col-12 col-lg-4">
         <div class="card-value">

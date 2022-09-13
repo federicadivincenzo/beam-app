@@ -45,6 +45,13 @@ $br-radius: 2em;
       font-weight: bold;
     }
   }
+
+  .card-grid_scroll {
+    .card__heading{
+
+      font-size: 1.8rem;
+    }
+  }
 }
 
 .card_column {
@@ -160,15 +167,15 @@ $br-radius: 2em;
   box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
 }
 
-// .card-content {
-//   display: flex;
-//   flex-direction: column;
-//   justify-content: center;
-//   align-items: center;
-//   width: 100%;
-//   gap: .8em;
-//   font-weight: bold;
-// }
+ .card-content {
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+   align-items: center;
+   width: 100%;
+   gap: .8em;
+   font-weight: bold;
+ }
 
 
 .card-value {
