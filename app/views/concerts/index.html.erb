@@ -89,7 +89,7 @@
   <section class="container">
     <div class="card-grid_column card-grid" >
       <% @concerts.each do |concert| %>
-        <div class="card card__background" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(<%= concert.photo %>)" data-controller="edit-concerts" data-action="click->edit-concerts#displayForm">
+        <div class="card card-animate card__background" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(<%= concert.photo %>)" data-controller="edit-concerts" data-action="click->edit-concerts#displayForm">
           <div class="card__content">
             <p class="card__category"><%= concert.date %></p>
             <h3 class="card__heading"><%= concert.artist %></h3>
