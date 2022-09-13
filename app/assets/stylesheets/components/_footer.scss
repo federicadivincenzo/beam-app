@@ -54,3 +54,25 @@
   justify-content: center;
 
 }
+
+
+.footer{
+  padding: 2em;
+  background-image: linear-gradient(45deg, #FF512F 0%, #F09819  51%, #FF512F  100%);
+  background-blend-mode: overlay;
+  color: white;
+  .list {
+    list-style: none;
+    padding: 0;
+    text-transform: uppercase;
+    text-decoration: none;
+    line-height: 2;
+  }
+}
+
+.list  {
+  li a:hover {
+    text-decoration: wavy;
+
+  }
+}
