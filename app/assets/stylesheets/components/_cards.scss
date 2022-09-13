@@ -109,13 +109,22 @@ $br-radius: 2em;
     border-radius: $br-radius;
 }
 
-
+.attendee-card {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 .card__content{
   left: 0;
   padding: 1.3em;
   position: absolute;
   bottom: 0;
   color: white;
+}
+
+#card-fullname {
+  color: orange;
+  margin: 0;
 }
 
 .card__category{
@@ -125,9 +134,10 @@ $br-radius: 2em;
   text-transform: uppercase;
 }
 
+
+
 .card  {
   position: relative;
-
 }
 
 .form-group-container{
@@ -167,15 +177,15 @@ $br-radius: 2em;
   box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
 }
 
- .card-content {
-   display: flex;
-   flex-direction: column;
-   justify-content: center;
-   align-items: center;
-   width: 100%;
-   gap: .8em;
-   font-weight: bold;
- }
+.card-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  gap: .8em;
+  font-weight: bold;
+}
 
 
 .card-value {
