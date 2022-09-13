@@ -23,6 +23,9 @@
     </div>
     <div class="d-flex justify-content-between flex-column mt-4 col-12">
       <h3><strong class="my-3 mb-3 text-center">🚀 Upcoming concerts</strong></h3>
+      <% if @concerts.count == 0 %>
+        <p>No concert joined yet!</p>
+      <% end %>
       <div class="card-grid_scroll mt-3 mb-5">
         <% @concerts.each do |concert| %>
           <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(<%= concert.photo %>)">
@@ -33,6 +36,7 @@
           </div>
         <% end %>
       </div>
+
       <h3><strong class="my-3 mb-3 text-center">⭐️ Reviews </strong></h3>
       <p classs="mt-2"><%= "No reviews" if @reviews.count == 0 %></p>
       <% @reviews.each do |review| %>
