@@ -7,7 +7,20 @@
       <p class="text-center"> <%= @user.bio %></p>
     </div>
     <div class="text-center my-2 col-8 d-flex justify-content-around align-items-center">
-        <div><div><strong>5.0</strong></div><div>Rating</div></div>
+        <div><div>
+          <strong><% if @reviews.count == 0 %>
+                    Not rated
+                  <% else %>
+                    <% @reviews.average(:rating).round(0).times do %>
+                      <i class="fa-solid fa-star"></i>
+                    <% end %>
+                    <% (5 - @reviews.average(:rating).round(0)).times do %>
+                      <i class="fa-regular fa-star"></i>
+                    <% end %>
+                    (<%= @reviews.average(:rating).round(1) %>)
+                  <% end %>
+          </strong>
+        </div><div>Rating</div></div>
         <div><strong><div><%= @concerts.count %></div></strong><div>concerts</div></div>
     </div>
     <div class="text-center my-2 col-10 d-flex justify-content-around align-items-center btnFlex">
