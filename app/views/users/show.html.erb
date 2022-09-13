@@ -40,8 +40,12 @@
         <div class="py-2 reviewContent col-10 mb-2">
           <ul>
             <div>
-              <strong><%= review.user.username %></strong>
-              <br>
+              <% review.rating.times do %>
+                <i class="fa-solid fa-star"></i>
+              <% end %>
+              <% (5 - review.rating).times do %>
+                <i class="fa-regular fa-star"></i>
+              <% end %>
               <div>
               <%= review.content %>
               </div>
