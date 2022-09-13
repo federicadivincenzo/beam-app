@@ -1,0 +1,23 @@
+<div class="footer">
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-12 col-lg-6">
+        <div class="logo">
+          <h1 id='logo-white'>BEAM.</h1>
+        </div>
+      </div>
+      <div class="col-sm-12 col-lg-6 d-flex justify-content-center">
+        <ul class="list">
+          <% if user_signed_in? %>
+            <%# <%= image_tag "https://kitt.lewagon.com/placeholder/users/random", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+            <li><%= link_to "My Profile", user_path(current_user.id), class: "dropdown-item d-inline"%> </li>
+            <li><%= link_to 'My Chats', chatrooms_path, class: "dropdown-item d-inline" %> </li>
+            <li><%= link_to "All concerts", concerts_path, class: "dropdown-item d-inline" %></li>
+          <% else %>
+            <li><%= link_to "sign in", new_user_session_path, class:"dropdown-item" %></li>
+            <li><%= link_to "sign up", new_user_registration_path, class:"dropdown-item"  %></li>
+          <% end %>
+        </ul>
+      </div>
+  </div>
+</div>

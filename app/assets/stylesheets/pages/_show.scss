@@ -67,3 +67,13 @@ body {
     width: 100%;
   }
 }
+
+
+@media only screen and (min-width: 768px) {
+  .reverse-column {
+    display: flex;
+    flex-direction: column-reverse;
+  }
+
+
+}

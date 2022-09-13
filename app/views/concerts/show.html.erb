@@ -1,9 +1,3 @@
-<div class="show-container" data-controller="change-grid">
-  <div class="show-container">
-    <div class="card-category" style="background-image: url(<%= @concert.photo %>)">
-
-    </div>
-  <!-- Modal -->
     <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
       <div class="modal-dialog">
         <div class="modal-content">
@@ -14,7 +8,7 @@
                   <% photo = attendee.user.photo ? attendee.user.photo : "https://thumbs.dreamstime.com/b/default-avatar-profile-trendy-style-social-media-user-icon-187599373.jpg" %>
                   <%= image_tag photo, class: 'avatar-sm'  %>
                   <%= link_to user_path(attendee.user.id) do %>
-                    <p class="card-fullname"><%= attendee.user.username %></p>
+                    <p id="card-fullname"><%= attendee.user.username %></p>
                   <% end %>
                 </div>
               </div>
@@ -24,6 +18,10 @@
       </div>
     </div>
 
+<div class="show-container" data-controller="change-grid">
+  <div class="show-container">
+    <div class="card-category" style="background-image: url(<%= @concert.photo %>)">
+    </div>
     <div class="concert-details">
       <div class="concert-details-title">
         <h1><%= @concert.artist %></h1>
@@ -31,13 +29,14 @@
       </div>
       <div class="concert-details-list">
         <ul class="list-no-style">
-          <li><p><i class="fa-solid fa-calendar"></i> <%= @concert.date %></p></li>
-          <li><p><i class="fa-solid fa-location-crosshairs"></i> <%= @concert.venue %></p></li>
+          <li><p>🗓 <%= @concert.date %></p></li>
+          <li><p>📍 <%= @concert.venue %></p></li>
+          <li><p>🎶 <%= @concert.genre %></p></li>
         </ul>
         </div>
         <div class="concert-details-bio">
           <h3>Description</h3>
-          <p><%= @concert.description %> "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."</p>
+          <p><%= @concert.description %> </p>
         </div>
 
       </div>
@@ -57,11 +56,11 @@
           <p><%= @attendees.count %> attending</p>
         </button>
         <% if current_user == nil %>
-          <button class="btn-orange "><%= button_to 'Join now', new_user_session_path, class:"joinBtn" %></button>
+          <%= button_to 'Join now', new_user_session_path, class:"joinBtn btn-orange" %>
         <% elsif UsersConcert.find_by(user_id: current_user.id, concert_id: @concert.id) %>
-          <button class="btn-orange"><%= link_to 'CHAT', chatroom_path(@concert.chatroom) %></button>
+          <%= link_to 'CHAT', chatroom_path(@concert.chatroom), class: 'btn-orange' %>
         <% else %>
-          <button class="btn-orange "><%= button_to 'Join now', concert_users_concerts_path(@concert), class:"joinBtn" %></button>
+          <%= button_to 'Join now', concert_users_concerts_path(@concert), class:"joinBtn btn-orange" %>
         <% end %>
       </div>
 
