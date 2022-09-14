@@ -2,9 +2,18 @@
   <%# <div>
     <%= image_tag concert.photo, alt: "concert img", class:'map_concert_img' %>
   <%# </div>  %>
-<div class="pb-6" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)),url(<%= concert.photo %>);background-size: cover;">
-    <h3 class="map_card_details"><%= link_to concert.artist, concert_path(concert), class:'map_card_link' %></h3>
-    <h3 class="map_card_details"><%= concert.date %></h3>
-    <h3 class="map_card_details"><%= concert.genre %></h3>
+<%# <div class="pb-6" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)),url(<%= concert.photo %>
+    <%# <h3 class="map_card_details"><%= link_to concert.artist, concert_path(concert), class:'map_card_link' %>
+    <%# <h3 class="map_card_details"><%= concert.date %>
+    <%# <h3 class="map_card_details"><%= concert.genre %>
 
+<%# </div> %>
+
+
+<div class="card-product pb-6">
+  <img src="<%= concert.photo %>" />
+    <div class="card-product-infos">
+      <h2><%= concert.artist %></h2>
+      <p><%= concert.date.strftime("%d %b %Y") %></p>
+    </div>
 </div>
