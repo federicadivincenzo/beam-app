@@ -1,22 +1,23 @@
-    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-      <div class="modal-dialog">
-        <div class="modal-content">
-          <div class="card-grid_column card-grid-modal user-card-container" data-change-grid-target="grid" >
-            <%  @attendees.each do |attendee| %>
-              <div class="attendee-card">
-                <div class="card-content">
-                  <% photo = attendee.user.photo ? attendee.user.photo : "https://thumbs.dreamstime.com/b/default-avatar-profile-trendy-style-social-media-user-icon-187599373.jpg" %>
-                  <%= image_tag photo, class: 'avatar-sm'  %>
-                  <%= link_to user_path(attendee.user.id) do %>
-                    <p id="card-fullname"><%= attendee.user.username %></p>
-                  <% end %>
-                </div>
-              </div>
-            <% end %>
+<% content_for :meta_title, "#{@concert.artist} on #{@concert.date}" %>
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="card-grid_column card-grid-modal user-card-container" data-change-grid-target="grid" >
+        <%  @attendees.each do |attendee| %>
+          <div class="attendee-card">
+            <div class="card-content">
+              <% photo = attendee.user.photo ? attendee.user.photo : "https://thumbs.dreamstime.com/b/default-avatar-profile-trendy-style-social-media-user-icon-187599373.jpg" %>
+              <%= image_tag photo, class: 'avatar-sm'  %>
+              <%= link_to user_path(attendee.user.id) do %>
+                <p id="card-fullname"><%= attendee.user.username %></p>
+              <% end %>
+            </div>
           </div>
-        </div>
+        <% end %>
       </div>
     </div>
+  </div>
+</div>
 
 <div class="show-container" data-controller="change-grid">
   <div class="show-container">
