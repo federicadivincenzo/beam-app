@@ -1,3 +1,4 @@
+<% content_for :meta_title, "Concerts" %>
 <div class="index-container" data-controller="search-concerts">
   <div class="container search-container w-60" >
     <%= form_tag concerts_path, method: :get, class: "my-3 w-75  searchInputAndIcon w-100", data: {search_concerts_target: "form"}  do %>

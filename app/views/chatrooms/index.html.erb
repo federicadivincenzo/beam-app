@@ -1,4 +1,4 @@
-
+<% content_for :meta_title, "My Chats" %>
 <div class="container chat-index">
   <% current_user.chatrooms.each do |chatroom| %>
     <%= link_to chatroom_path(chatroom) do %>
