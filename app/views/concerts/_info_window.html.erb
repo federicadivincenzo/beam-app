@@ -3,7 +3,7 @@
     <%= image_tag concert.photo, alt: "concert img", class:'map_concert_img' %>
   <%# </div>  %>
 <%# <div class="pb-6" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)),url(<%= concert.photo %>
-    <%# <h3 class="map_card_details"><%= link_to concert.artist, concert_path(concert), class:'map_card_link' %>
+    <%# <h3 class="map_card_details">
     <%# <h3 class="map_card_details"><%= concert.date %>
     <%# <h3 class="map_card_details"><%= concert.genre %>
 
@@ -13,7 +13,7 @@
 <div class="card-product pb-6">
   <img src="<%= concert.photo %>" />
     <div class="card-product-infos">
-      <h2><%= concert.artist %></h2>
+      <h2><%= link_to concert.artist, concert_path(concert)%></h2>
       <p><%= concert.date.strftime("%d %b %Y") %></p>
     </div>
 </div>

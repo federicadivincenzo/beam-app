@@ -21,7 +21,7 @@
 
 .mapboxgl-popup{
   transform: unset !important;
-  position: fixed;
+  position: absolute;
   bottom: 2em;
   left: 3em;
   top: unset !important;
