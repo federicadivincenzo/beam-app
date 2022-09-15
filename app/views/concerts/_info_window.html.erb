@@ -13,7 +13,7 @@
 <div class="card-product pb-6">
   <img src="<%= concert.photo %>" />
     <div class="card-product-infos">
-      <h2><%= link_to concert.artist, concert_path(concert)%></h2>
+      <h2><%= link_to concert.artist, concert_path(concert), id: 'link-map'%></h2>
       <p><%= concert.date.strftime("%d %b %Y") %></p>
     </div>
 </div>
