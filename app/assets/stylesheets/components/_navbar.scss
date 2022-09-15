@@ -9,6 +9,10 @@
   padding-bottom:133px;
 }
 
+.removebackground > button{
+  background: none;
+}
+
 .navbar-lewagon .navbar-collapse {
   flex-grow: 0;
 }

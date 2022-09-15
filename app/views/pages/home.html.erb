@@ -20,9 +20,11 @@
             params[:query],
             class: "rounded-pill searchInput", placeholder: "Search for artist, venue, city"
           %>
+          <div class="removebackground">
           <%= button_tag do %>
             <i class="fas fa-search"></i>
           <% end %>
+          </div>
         <% end %>
         <%= link_to concerts_path, class: 'orange-link', id: 'link-orange' do %>
            See all concerts
