@@ -36,10 +36,12 @@
   justify-content: space-around;
   display: flex;
 }
-nav{
+.stickynavbar{
   padding: 12px 16px ;
   position: sticky;
-  top: 0;
+  top: 10px;
   z-index: 999;
   height: 10%;
+  background-color: white;
+  opacity: 0.7;
 }
